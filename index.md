@@ -4,12 +4,15 @@ layout: homepage
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am a researcher at Perelman School of Medicine at the University of Pennsylvania and Penn Medicine. I work across multiple research groups within the Department of Radiology. My research aims to explore the clinical applications of artificial intelligence in radiology and evaluate its impact on global health informatics.
+
+I am also a Research Student at the Department of Radiology at Harvard Medical School/Mass General Hospital and the Athinoula A. Martinos Center for Biomedical Imaging, working on advanced AI methods in Vascular and Interventional Radiology.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Medical Imaging:** Oncology(CT, MR), Neurotrauma (dMRI)
+- **Machine Learning:** Deep Learning, Explainable AI, Large Language Models, Neuroinspired AI
+- **Clinical Informatics:** Patient-Centered Care, Medical Eduation, Global Health Informatics
 
 ## News
 
