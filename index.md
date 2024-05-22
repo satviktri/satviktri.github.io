@@ -16,10 +16,10 @@ I am also a Research Student at the Department of Radiology at Harvard Medical S
 
 ## News
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
+- **[May. 2024]** Our abstract was selected as top 20 abstracts at the 2024 National Neurotrauma Symposium 
+- **[May. 2024]** Recived prestigious trainee travel award by the  National Neurotrauma Society 
+- **[Apr. 2024]** Won $5k grand prize in advanced track at the 2024 Philly CodeFest
+
 
 {% include_relative _includes/publications.md %}
 
