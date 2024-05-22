@@ -2,11 +2,23 @@
 layout: homepage
 ---
 
-## About Me
+## Short Bio
 
 I am a researcher at Perelman School of Medicine at the University of Pennsylvania and Penn Medicine. I work across multiple research groups within the Department of Radiology. My research aims to explore the clinical applications of artificial intelligence in radiology and evaluate its impact on global health informatics.
 
 I am also a Research Student at the Department of Radiology at Harvard Medical School/Mass General Hospital and the Athinoula A. Martinos Center for Biomedical Imaging, working on advanced AI methods in Vascular and Interventional Radiology.
+
+## Research Laborteries 
+
+**Penn Medicine**
+    - Diffusion and Connectomics in Precision Healthcare Research (Diciphr) Lab, Department of Radiology 
+    - Center for Practice Transformation, Department of Radiology
+    - Center for Global and Population Health Research, Department of Radiology
+    - McBeth Lab, Department of Radiation Oncology
+
+**MGH/HMS Martinos Center**
+    - Quantitative Translational Imaging in Medicine Laboratory (QTIM)
+    - Division of Vascular & Interventional Radiology 
 
 ## Research Interests
 
