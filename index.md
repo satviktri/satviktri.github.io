@@ -8,17 +8,17 @@ I am a researcher at Perelman School of Medicine at the University of Pennsylvan
 
 I am also a Research Student at the Department of Radiology at Harvard Medical School/Mass General Hospital and the Athinoula A. Martinos Center for Biomedical Imaging, working on advanced AI methods in Vascular and Interventional Radiology.
 
-## Research Laborteries 
+## Laborteries 
 
-**Penn Medicine**
-    - Diffusion and Connectomics in Precision Healthcare Research (Diciphr) Lab, Department of Radiology 
-    - Center for Practice Transformation, Department of Radiology
-    - Center for Global and Population Health Research, Department of Radiology
-    - McBeth Lab, Department of Radiation Oncology
+**University of Pennsylvania Health System- Penn Medicine**
+- Diffusion and Connectomics in Precision Healthcare Research (Diciphr) Lab, Department of Radiology 
+- Center for Practice Transformation, Department of Radiology
+- Center for Global and Population Health Research, Department of Radiology
+- McBeth Lab, Department of Radiation Oncology
 
 **MGH/HMS Martinos Center**
-    - Quantitative Translational Imaging in Medicine Laboratory (QTIM)
-    - Division of Vascular & Interventional Radiology 
+- Quantitative Translational Imaging in Medicine Laboratory (QTIM)
+- Division of Vascular & Interventional Radiology 
 
 ## Research Interests
 
