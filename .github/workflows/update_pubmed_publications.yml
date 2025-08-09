@@ -1,0 +1,48 @@
+name: Update PubMed Publications
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  fetch_pubmed_publications:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install biopython
+
+      - name: Fetch publications from PubMed
+        run: |
+          python - << 'EOF'
+          from Bio import Entrez
+
+          # Set your email (required by NCBI)
+          Entrez.email = "your-email@example.com"
+
+          # Define your query for the author "Satvik Tripathi"
+          query = '"Satvik Tripathi"[Author]'
+
+          # Search PubMed for matching records (retmax sets the maximum number of results)
+          handle = Entrez.esearch(db="pubmed", term=query, retmax=20)
+          record = Entrez.read(handle)
+          id_list = record.get('IdList', [])
+          
+          if not id_list:
+              print("No publications found for Satvik Tripathi.")
+          else:
+              print("Found publications with PubMed IDs:")
+              for pub_id in id_list:
+                  print(f"- {pub_id}")
+          EOF
+
