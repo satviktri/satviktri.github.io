@@ -11,7 +11,6 @@ I am also a Research Student at the Department of Radiology at Harvard Medical S
 ## Laborteries 
 
 **University of Pennsylvania Health System- Penn Medicine**
-- Diffusion and Connectomics in Precision Healthcare Research (Diciphr) Lab, Department of Radiology 
 - Center for Practice Transformation, Department of Radiology
 - Center for Global and Population Health Research, Department of Radiology
 - McBeth Lab, Department of Radiation Oncology
