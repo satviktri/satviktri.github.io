@@ -66,10 +66,32 @@ img {
 .identity__avatar {
   width: 128px;
   height: 128px;
-  border-radius: 22px;
+  padding: 0.35rem;
+  border-radius: 26px;
   object-fit: cover;
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(129, 140, 248, 0.75), rgba(192, 132, 252, 0.85))
+      border-box;
+  border: 2px solid transparent;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18), 0 0 0 10px rgba(37, 99, 235, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  transform: translateZ(0);
+  filter: saturate(1) brightness(1);
+  animation: float 12s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+.identity__avatar:hover,
+.identity__avatar:focus {
+  animation: none;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.22), 0 0 0 12px rgba(59, 130, 246, 0.16);
+  filter: saturate(1.08) brightness(1.05);
+}
+
+.identity__avatar:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.45);
+  outline-offset: 6px;
 }
 
 .identity__name {
@@ -380,5 +402,17 @@ img {
   .site-nav {
     overflow-x: auto;
     padding-bottom: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
   }
 }
