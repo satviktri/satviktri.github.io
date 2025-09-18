@@ -4,10 +4,8 @@ permalink: pretty
 
 # Personal details
 title: Satvik Tripathi
-tagline: "Bridging medical imaging, machine learning, and clinical impact"
-role: "Researcher in medical AI and imaging"
-email: "Satvikt (at) upenn.edu"
-location: "Philadelphia, PA & Boston, MA"
+tagline: "Clinically Relevant AI for Radiology, Oncology, and Global Health"
+role: "Researcher"
 description: "Satvik Tripathi's personal research website focusing on medical imaging, machine learning, and clinical informatics."
 keywords: [Satvik Tripathi, radiology, medical imaging, artificial intelligence, Penn Medicine, Harvard Medical School]
 canonical: https://satviktri.github.io/
@@ -18,9 +16,9 @@ favicon_dark: /assets/img/favicon-dark.png
 # Affiliations and links
 affiliations:
   - name: Perelman School of Medicine, University of Pennsylvania
-    url: https://www.pennmedicine.org/departments-and-centers/radiology
-  - name: Department of Radiology, Harvard Medical School / MGH Martinos Center
-    url: https://www.massgeneral.org/imaging/research/martinos
+    url: https://www3.pennmedicine.org/departments-and-centers/department-of-radiology
+  - name: Martinos Center, Mass General Hospital, Harvard Medical School
+    url: https://www.martinos.org/
 
 social_links:
   - label: Curriculum Vitae
@@ -28,7 +26,7 @@ social_links:
   - label: LinkedIn
     url: https://www.linkedin.com/in/satvik-tripathi/
   - label: Google Scholar
-    url: https://scholar.google.com/
+    url: https://scholar.google.com/citations?user=d-8xB2sAAAAJ&hl=en
   - label: X (Twitter)
     url: https://x.com/Satvikt_ai
   - label: Email
