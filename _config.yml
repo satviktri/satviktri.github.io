@@ -1,57 +1,48 @@
-# Basic Information 
+# Site identity
+lang: en
+permalink: pretty
+
+# Personal details
 title: Satvik Tripathi
-position: Researcher
-affiliation: University of Pennsylavania
-affiliation: Harvard Medical School
-email: Satvikt (at) upenn.edu
+tagline: "Bridging medical imaging, machine learning, and clinical impact"
+role: "Researcher in medical AI and imaging"
+email: "Satvikt (at) upenn.edu"
+location: "Philadelphia, PA & Boston, MA"
+description: "Satvik Tripathi's personal research website focusing on medical imaging, machine learning, and clinical informatics."
+keywords: [Satvik Tripathi, radiology, medical imaging, artificial intelligence, Penn Medicine, Harvard Medical School]
+canonical: https://satviktri.github.io/
+profile_image: /assets/img/profile.jpg
+favicon: /assets/img/favicon.png
+favicon_dark: /assets/img/favicon-dark.png
 
-# Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: Satvik Tripathi, Radiology, AI, Satvik, Tripathi, Satvik AI, satvik Radiology, Penn, Harvard
-description: This is Satvik Tripathi's personal research website webpage.
-canonical: https://minimal-light-theme.yliu.me/
+# Affiliations and links
+affiliations:
+  - name: Perelman School of Medicine, University of Pennsylvania
+    url: https://www.pennmedicine.org/departments-and-centers/radiology
+  - name: Department of Radiology, Harvard Medical School / MGH Martinos Center
+    url: https://www.massgeneral.org/imaging/research/martinos
 
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/
-cv_link: assets/files/curriculum_vitae.pdf
-linkedin: https://www.linkedin.com/in/satvik-tripathi/
-twitter: https://x.com/Satvikt_ai
+social_links:
+  - label: Curriculum Vitae
+    url: /assets/files/curriculum_vitae.pdf
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/satvik-tripathi/
+  - label: Google Scholar
+    url: https://scholar.google.com/
+  - label: X (Twitter)
+    url: https://x.com/Satvikt_ai
+  - label: Email
+    url: mailto:Satvikt@upenn.edu
 
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/profile.jpg
-favicon: ./assets/img/favicon.png
-favicon_dark: ./assets/img/favicon-dark.png
-
-# Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
-enable_footnote: false
-
-# Auto Dark Mode
-# You may use the option to disable the automatic dark theme
-auto_dark_mode: true
-
-# Font
-# You can use this option to choose between Serif or Sans Serif fonts.
-font: "Sans Serif" # or "Sans Serif"
-
-# Google Analytics ID
-# Please remove this if you don't use Google Analytics
+# Analytics
 google_analytics: G-V08WLNR7E2
 
-# Use this project as a remote theme for GitHub Pages
-# See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-remote_theme: yaoyao-liu/minimal-light
-
-# The following files will be removed from the generated website.
+# Build settings
+markdown: kramdown
+theme: null
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - README_zh_Hans.md
-  - README_zh_Hant.md
-  - README_de.md
   - LICENSE
-  - minimal-light.gemspec
   - html_source_file/

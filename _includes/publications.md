@@ -1,53 +1,47 @@
-<h2 id="publications" style="margin: 2px 0px -15px;">Publications</h2>
-
-<div class="publications">
-<ol class="bibliography">
-
-{% for link in site.data.publications.main %}
-
-<li>
-<div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    {% if link.image %} 
-    <img src="{{ link.image }}" class="teaser img-fluid z-depth-1" style="width=100;height=40%">
-    {% endif %}
-    {% if link.conference_short %} 
-    <abbr class="badge">{{ link.conference_short }}</abbr>
-    {% endif %}
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
-      <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
-      <div class="author">{{ link.authors }}</div>
-      <div class="periodical"><em>{{ link.conference }}</em>
+<section id="publications" class="section">
+  <h2 class="section-title">Selected Publications</h2>
+  {% assign publications = site.data.publications.selected | default: site.data.publications.main | default: [] %}
+  {% if publications.size > 0 %}
+  <div class="publication-list">
+    {% for paper in publications %}
+    <article class="publication">
+      <h3 class="publication__title">
+        {% if paper.pdf %}
+        <a href="{{ paper.pdf }}">{{ paper.title }}</a>
+        {% else %}
+        {{ paper.title }}
+        {% endif %}
+      </h3>
+      {% if paper.authors %}
+      <p class="publication__meta">{{ paper.authors }}</p>
+      {% endif %}
+      {% if paper.conference or paper.conference_short %}
+      <p class="publication__meta">
+        {% if paper.conference_short %}<strong>{{ paper.conference_short }}</strong>{% endif %}
+        {% if paper.conference_short and paper.conference %} · {% endif %}
+        {% if paper.conference %}{{ paper.conference }}{% endif %}
+      </p>
+      {% endif %}
+      {% if paper.links or paper.pdf or paper.code or paper.page or paper.bibtex %}
+      <div class="publication__links">
+        {% if paper.pdf %}<a href="{{ paper.pdf }}">PDF</a>{% endif %}
+        {% if paper.code %}<a href="{{ paper.code }}">Code</a>{% endif %}
+        {% if paper.page %}<a href="{{ paper.page }}">Project Page</a>{% endif %}
+        {% if paper.bibtex %}<a href="{{ paper.bibtex }}">BibTeX</a>{% endif %}
+        {% if paper.links %}
+          {% for extra in paper.links %}
+          <a href="{{ extra.url }}">{{ extra.label }}</a>
+          {% endfor %}
+        {% endif %}
       </div>
-    <div class="links">
-      {% if link.pdf %} 
-      <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">PDF</a>
       {% endif %}
-      {% if link.code %} 
-      <a href="{{ link.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Code</a>
+      {% if paper.notes %}
+      <p class="publication__meta"><em>{{ paper.notes }}</em></p>
       {% endif %}
-      {% if link.page %} 
-      <a href="{{ link.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Project Page</a>
-      {% endif %}
-      {% if link.bibtex %} 
-      <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
-      {% endif %}
-      {% if link.notes %} 
-      <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
-      {% endif %}
-      {% if link.others %} 
-      {{ link.others }}
-      {% endif %}
-    </div>
+    </article>
+    {% endfor %}
   </div>
-</div>
-</li>
-
-<br>
-
-{% endfor %}
-
-</ol>
-</div>
-
+  {% else %}
+  <p class="empty-state">A curated publication list is coming soon.</p>
+  {% endif %}
+</section>
