@@ -3,16 +3,16 @@
   --accent: #8b5cf6;
   --accent-strong: #22d3ee;
   --accent-soft: rgba(139, 92, 246, 0.25);
-  --hero-gradient: linear-gradient(135deg, #181d60 0%, #3e2fa9 42%, #0f87ff 100%);
-  --hero-orb-1: radial-gradient(circle at 20% 20%, rgba(94, 234, 212, 0.55) 0%, rgba(94, 234, 212, 0) 60%);
-  --hero-orb-2: radial-gradient(circle at 85% 0%, rgba(244, 114, 182, 0.5) 0%, rgba(244, 114, 182, 0) 65%);
+  --hero-gradient: linear-gradient(135deg, #050b28 0%, #0e1d4a 32%, #251c68 62%, #452c9c 100%);
+  --hero-orb-1: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.58) 0%, rgba(56, 189, 248, 0) 65%);
+  --hero-orb-2: radial-gradient(circle at 80% 8%, rgba(168, 85, 247, 0.5) 0%, rgba(168, 85, 247, 0) 70%);
   --body-gradient: radial-gradient(120% 120% at 10% 0%, rgba(63, 94, 251, 0.25) 0%, rgba(4, 10, 26, 0) 52%),
     radial-gradient(110% 110% at 90% 0%, rgba(34, 211, 238, 0.18) 0%, rgba(5, 11, 28, 0) 55%),
     linear-gradient(180deg, #030712 0%, #070f26 48%, #030510 100%);
   --text: rgba(232, 240, 255, 0.92);
   --muted: rgba(198, 208, 255, 0.74);
   --heading: #f8f9ff;
-  --hero-muted: rgba(214, 225, 255, 0.78);
+  --hero-muted: rgba(205, 217, 255, 0.82);
   --glass-bg: rgba(13, 22, 45, 0.72);
   --glass-border: rgba(142, 169, 255, 0.28);
   --glass-shadow: 0 35px 80px rgba(5, 9, 28, 0.55);
@@ -45,6 +45,10 @@ body {
   background: var(--body-gradient);
   color: var(--text);
   overflow-x: hidden;
+  position: relative;
+  background-size: 135% 135%, 155% 155%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, center;
+  animation: auroraFlow 22s ease-in-out infinite;
 }
 
 a {
@@ -72,40 +76,57 @@ img {
   z-index: 1;
 }
 
+
 .site-header {
   position: relative;
   overflow: hidden;
-  background: var(--hero-gradient);
+  background-color: #05081e;
+  background-image: var(--hero-gradient),
+    radial-gradient(ellipse at top left, rgba(56, 189, 248, 0.26) 0%, rgba(56, 189, 248, 0) 64%),
+    radial-gradient(ellipse at top right, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 70%);
+  background-repeat: no-repeat;
+  background-size: 122% 122%, 190% 190%, 210% 210%;
+  background-position: 48% 52%, -18% -36%, 118% -44%;
+  background-blend-mode: normal, screen, screen;
+  animation: headerGradientDrift 28s ease-in-out infinite;
   border-bottom: none;
   box-shadow: var(--shadow-strong);
   color: var(--heading);
   padding-bottom: 2rem;
+  isolation: isolate;
 }
 
 .site-header::before,
 .site-header::after {
   content: '';
   position: absolute;
-  inset: auto;
-  width: 80vmax;
-  height: 80vmax;
+  inset: 0;
   pointer-events: none;
-  opacity: 0.75;
-  filter: blur(0.4px);
-  transform: translate(-35%, -35%);
+  z-index: 1;
 }
 
 .site-header::before {
-  top: -30vmax;
-  left: -10vmax;
-  background: var(--hero-orb-1);
+  inset: -32% -38% -28% -38%;
+  background-image: var(--hero-orb-1), var(--hero-orb-2);
+  background-repeat: no-repeat;
+  background-size: 70% 70%, 72% 72%;
+  background-position: -10% -18%, 112% -20%;
+  opacity: 0.85;
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  will-change: transform, background-position;
+  animation: headerOrbDrift 32s ease-in-out infinite;
 }
 
 .site-header::after {
-  top: -22vmax;
-  right: -30vmax;
-  background: var(--hero-orb-2);
-  transform: translate(0, -30%);
+  inset: -24% -16% -16% -16%;
+  background: linear-gradient(120deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.24) 22%, rgba(168, 85, 247, 0.32) 56%, rgba(56, 189, 248, 0.22) 78%, rgba(56, 189, 248, 0.05) 100%);
+  background-size: 210% 210%;
+  opacity: 0.55;
+  filter: blur(22px);
+  mix-blend-mode: screen;
+  will-change: transform, background-position;
+  animation: headerAurora 18s linear infinite;
 }
 
 .site-header > .container {
@@ -161,19 +182,25 @@ img {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--heading);
+  text-shadow: 0 14px 45px rgba(6, 12, 32, 0.75), 0 0 22px rgba(88, 165, 255, 0.35);
 }
 
 .identity__role {
   margin: 0.35rem 0 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(224, 232, 255, 0.9);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.26em;
+  background: linear-gradient(90deg, rgba(129, 172, 255, 0.85), rgba(220, 143, 255, 0.9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 18px rgba(99, 102, 241, 0.35);
 }
 
 .identity__tagline {
   margin: 0 0 1rem;
-  color: var(--hero-muted);
+  color: rgba(209, 221, 255, 0.88);
   font-size: 1.05rem;
 }
 
@@ -307,6 +334,7 @@ img {
   width: 36rem;
   height: 36rem;
   background: radial-gradient(circle at center, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: pulseGlow 14s ease-in-out infinite;
 }
 
 .main-content::after {
@@ -315,6 +343,7 @@ img {
   width: 40rem;
   height: 40rem;
   background: radial-gradient(circle at center, rgba(34, 211, 238, 0.22) 0%, rgba(34, 211, 238, 0) 70%);
+  animation: pulseGlow 18s ease-in-out infinite reverse;
 }
 
 .section {
@@ -597,6 +626,72 @@ img {
 
   .header-layout {
     padding: 2.75rem 0 1.75rem;
+  }
+}
+
+@keyframes headerGradientDrift {
+  0% {
+    background-position: 48% 52%, -18% -36%, 118% -44%;
+  }
+  45% {
+    background-position: 52% 48%, -10% -18%, 102% -26%;
+  }
+  100% {
+    background-position: 48% 52%, -18% -36%, 118% -44%;
+  }
+}
+
+@keyframes headerOrbDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: -10% -18%, 112% -20%;
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.06);
+    background-position: 4% -10%, 96% -10%;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: -10% -18%, 112% -20%;
+  }
+}
+
+@keyframes headerAurora {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(-1deg) scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(1deg) scale(1.04);
+  }
+  100% {
+    background-position: 200% 50%;
+    transform: rotate(-1deg) scale(1);
+  }
+}
+
+@keyframes auroraFlow {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
   }
 }
 
