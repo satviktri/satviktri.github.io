@@ -45,6 +45,10 @@ body {
   background: var(--body-gradient);
   color: var(--text);
   overflow-x: hidden;
+  position: relative;
+  background-size: 135% 135%, 155% 155%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, center;
+  animation: auroraFlow 22s ease-in-out infinite;
 }
 
 a {
@@ -92,20 +96,32 @@ img {
   pointer-events: none;
   opacity: 0.75;
   filter: blur(0.4px);
-  transform: translate(-35%, -35%);
+  animation-duration: 26s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 .site-header::before {
+  animation-name: orbDriftLeft;
   top: -30vmax;
   left: -10vmax;
   background: var(--hero-orb-1);
 }
 
 .site-header::after {
+  animation-name: orbDriftRight;
   top: -22vmax;
   right: -30vmax;
   background: var(--hero-orb-2);
-  transform: translate(0, -30%);
+}
+
+.site-header::before {
+  animation-delay: -6s;
+}
+
+.site-header::after {
+  animation-delay: -13s;
 }
 
 .site-header > .container {
@@ -307,6 +323,7 @@ img {
   width: 36rem;
   height: 36rem;
   background: radial-gradient(circle at center, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: pulseGlow 14s ease-in-out infinite;
 }
 
 .main-content::after {
@@ -315,6 +332,7 @@ img {
   width: 40rem;
   height: 40rem;
   background: radial-gradient(circle at center, rgba(34, 211, 238, 0.22) 0%, rgba(34, 211, 238, 0) 70%);
+  animation: pulseGlow 18s ease-in-out infinite reverse;
 }
 
 .section {
@@ -597,6 +615,54 @@ img {
 
   .header-layout {
     padding: 2.75rem 0 1.75rem;
+  }
+}
+
+@keyframes auroraFlow {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+  }
+}
+
+@keyframes orbDriftLeft {
+  0% {
+    transform: translate(-35%, -35%) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30%, -42%) scale(1.05) rotate(8deg);
+  }
+  100% {
+    transform: translate(-35%, -35%) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes orbDriftRight {
+  0% {
+    transform: translate(-5%, -30%) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(5%, -38%) scale(1.08) rotate(-6deg);
+  }
+  100% {
+    transform: translate(-5%, -30%) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
   }
 }
 
