@@ -1,5 +1,9 @@
 <section id="publications" class="section">
-  <h2 class="section-title">Selected Publications</h2>
+  <div class="section-header">
+    <p class="section-kicker">Scholarship</p>
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">Curated articles and conference papers highlighting clinical AI impact.</p>
+  </div>
   {% assign publications = site.data.publications.selected | default: site.data.publications.main | default: [] %}
   {% if publications.size > 0 %}
   <div class="publication-list">
