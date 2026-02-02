@@ -1,5 +1,9 @@
 <section id="service" class="section">
-  <h2 class="section-title">Service &amp; Recognition</h2>
+  <div class="section-header">
+    <p class="section-kicker">Leadership</p>
+    <h2 class="section-title">Service &amp; Recognition</h2>
+    <p class="section-subtitle">Professional service and community contributions across imaging AI forums.</p>
+  </div>
   <div class="service-columns">
     <div>
       <h3>Honors</h3>
