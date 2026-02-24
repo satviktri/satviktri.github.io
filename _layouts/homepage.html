@@ -28,7 +28,7 @@
           {% if site.profile_image %}
           <img class="identity__avatar" src="{{ site.profile_image }}" alt="Portrait of {{ site.title }}">
           {% endif %}
-          <div class="identity__text">
+          <div class="identity__text glass">
             <h1 class="identity__name">{{ site.title }}</h1>
             {% if site.role %}
             <p class="identity__role">{{ site.role }}</p>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="container site-nav-wrapper">
-        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <button class="site-nav__toggle glass glass--light" type="button" aria-expanded="false" aria-controls="site-navigation">
           <span class="site-nav__toggle-box" aria-hidden="true">
             <span class="site-nav__toggle-line"></span>
             <span class="site-nav__toggle-line"></span>
@@ -76,7 +76,7 @@
           </span>
           <span class="site-nav__toggle-label">Menu</span>
         </button>
-        <nav id="site-navigation" class="site-nav" aria-label="Section navigation">
+        <nav id="site-navigation" class="site-nav glass" aria-label="Section navigation">
           <a href="#about">About</a>
           <a href="#snapshot">Snapshot</a>
           <a href="#laboratories">Laboratories</a>
