@@ -405,6 +405,7 @@ img {
   backdrop-filter: blur(26px) saturate(140%);
   color: var(--text);
   overflow: hidden;
+  animation: liquidLift 10s ease-in-out infinite;
 }
 
 .section::before {
