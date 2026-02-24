@@ -2,7 +2,7 @@
 layout: homepage
 ---
 
-<section id="about" class="section">
+<section id="about" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Overview</p>
     <h2 class="section-title">About</h2>
@@ -31,7 +31,7 @@ Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI sci
   </div>
 </section>
 
-<section id="snapshot" class="section">
+<section id="snapshot" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Profile Snapshot</p>
     <h2 class="section-title">At a Glance</h2>
@@ -60,7 +60,7 @@ Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI sci
   </div>
 </section>
 
-<section id="laboratories" class="section">
+<section id="laboratories" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Collaborations</p>
     <h2 class="section-title">Laboratories & Collaborations</h2>
@@ -85,7 +85,7 @@ Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI sci
   </div>
 </section>
 
-<section id="interests" class="section">
+<section id="interests" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Expertise</p>
     <h2 class="section-title">Research Interests</h2>
@@ -101,7 +101,7 @@ Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI sci
   </div>
 </section>
 
-<section id="initiatives" class="section">
+<section id="initiatives" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Initiatives</p>
     <h2 class="section-title">Current Research Directions</h2>
@@ -123,7 +123,7 @@ Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI sci
   </div>
 </section>
 
-<section id="news" class="section">
+<section id="news" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Updates</p>
     <h2 class="section-title">Recent Highlights</h2>
