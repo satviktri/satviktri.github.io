@@ -1,4 +1,4 @@
-<section id="publications" class="section">
+<section id="publications" class="section glass">
   <div class="section-header">
     <p class="section-kicker">Scholarship</p>
     <h2 class="section-title">Selected Publications</h2>
