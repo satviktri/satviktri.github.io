@@ -1,0 +1,68 @@
+:root {
+  --glass-bg-rgb: 238, 246, 255;
+  --glass-bg-alpha: 0.24;
+  --glass-border: rgba(255, 255, 255, 0.46);
+  --glass-highlight: rgba(255, 255, 255, 0.45);
+  --glass-radius: 20px;
+  --glass-blur: 20px;
+  --glass-saturation: 145%;
+  --glass-shadow-sm: 0 8px 22px rgba(15, 26, 52, 0.2);
+  --glass-shadow-md: 0 16px 38px rgba(10, 22, 46, 0.24), 0 2px 10px rgba(12, 26, 52, 0.18);
+  --glass-shadow-lg: 0 22px 48px rgba(8, 18, 40, 0.3), 0 4px 16px rgba(18, 35, 66, 0.22);
+  --glass-transition: 0.25s ease;
+}
+
+.glass {
+  position: relative;
+  background: rgba(var(--glass-bg-rgb), var(--glass-bg-alpha));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow-md);
+  overflow: hidden;
+  transition: transform var(--glass-transition), box-shadow var(--glass-transition), border-color var(--glass-transition), background-color var(--glass-transition);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(124deg, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.08) 34%, rgba(189, 220, 255, 0.08) 56%, rgba(255, 255, 255, 0.28) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: rgba(236, 244, 255, 0.86);
+  }
+}
+
+.glass:hover,
+.glass:focus-within {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), var(--glass-shadow-lg);
+}
+
+.glass--light {
+  --glass-bg-alpha: 0.34;
+  --glass-border: rgba(255, 255, 255, 0.58);
+  --glass-shadow-md: var(--glass-shadow-sm);
+}
+
+@media (max-width: 640px) {
+  .glass {
+    border-radius: 16px;
+  }
+}

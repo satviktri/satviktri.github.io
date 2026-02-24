@@ -8,7 +8,7 @@
   {% if publications.size > 0 %}
   <div class="publication-list">
     {% for paper in publications %}
-    <article class="publication">
+    <article class="publication glass">
       <h3 class="publication__title">
         {% if paper.pdf %}
         <a href="{{ paper.pdf }}">{{ paper.title }}</a>
