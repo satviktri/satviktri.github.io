@@ -1,51 +1,79 @@
-<section id="publications" class="section">
-  <div class="section-header">
-    <p class="section-kicker">Scholarship</p>
-    <h2 class="section-title">Selected Publications</h2>
-    <p class="section-subtitle">Curated articles and conference papers highlighting clinical AI impact.</p>
-  </div>
-  {% assign publications = site.data.publications.selected | default: site.data.publications.main | default: [] %}
-  {% if publications.size > 0 %}
-  <div class="publication-list">
-    {% for paper in publications %}
-    <article class="publication">
-      <h3 class="publication__title">
-        {% if paper.pdf %}
-        <a href="{{ paper.pdf }}">{{ paper.title }}</a>
-        {% else %}
-        {{ paper.title }}
-        {% endif %}
-      </h3>
-      {% if paper.authors %}
-      <p class="publication__meta">{{ paper.authors }}</p>
-      {% endif %}
-      {% if paper.conference or paper.conference_short %}
-      <p class="publication__meta">
-        {% if paper.conference_short %}<strong>{{ paper.conference_short }}</strong>{% endif %}
-        {% if paper.conference_short and paper.conference %} · {% endif %}
-        {% if paper.conference %}{{ paper.conference }}{% endif %}
-      </p>
-      {% endif %}
-      {% if paper.links or paper.pdf or paper.code or paper.page or paper.bibtex %}
-      <div class="publication__links">
-        {% if paper.pdf %}<a href="{{ paper.pdf }}">PDF</a>{% endif %}
-        {% if paper.code %}<a href="{{ paper.code }}">Code</a>{% endif %}
-        {% if paper.page %}<a href="{{ paper.page }}">Project Page</a>{% endif %}
-        {% if paper.bibtex %}<a href="{{ paper.bibtex }}">BibTeX</a>{% endif %}
-        {% if paper.links %}
-          {% for extra in paper.links %}
-          <a href="{{ extra.url }}">{{ extra.label }}</a>
-          {% endfor %}
-        {% endif %}
-      </div>
-      {% endif %}
-      {% if paper.notes %}
-      <p class="publication__meta"><em>{{ paper.notes }}</em></p>
-      {% endif %}
-    </article>
-    {% endfor %}
-  </div>
-  {% else %}
-  <p class="empty-state">A curated publication list is coming soon.</p>
-  {% endif %}
-</section>
+selected:
+
+  - title: "Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report"
+    authors: "Satvik Tripathi, Dana Alkhulaifat, Florence X. Doo, Pranav Rajpurkar, Rafe McBeth, Dania Daye, Tessa S. Cook"
+    conference_short: "NEJM AI"
+    conference: "NEJM AI, 2025"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Introduced standardized reporting checklist for LLM-based radiology research."
+
+  - title: "A Hitchhiker’s Guide to Good Prompting Practices for Large Language Models in Radiology"
+    authors: "Satvik Tripathi, Dana Alkhulaifat, Shawn Lyo, Rithvik Sukumaran, Bolin Li, Vedant Acharya, Rafe McBeth, Tessa S. Cook"
+    conference_short: "JACR"
+    conference: "Journal of the American College of Radiology, 2025"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Practical framework for reliable prompting in clinical radiology applications."
+
+  - title: "PRECISE Framework: Enhanced Radiology Reporting with GPT for Improved Readability, Reliability, and Patient-Centered Care"
+    authors: "Satvik Tripathi et al."
+    conference_short: "EJR"
+    conference: "European Journal of Radiology, 2025"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Demonstrated structured LLM reporting improving clinical readability and reliability."
+
+  - title: "Towards Pediatric Patient-Friendly Education Material Using Generative AI"
+    authors: "Satvik Tripathi, Dana Alkhulaifat, Hansel J. Otero, Tessa S. Cook"
+    conference_short: "JACR"
+    conference: "Journal of the American College of Radiology, 2025"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Applied generative AI to improve pediatric patient education accessibility."
+
+  - title: "Beyond Proprietary Models: The Potential of Open-Source Large Language Models in Radiology"
+    authors: "Satvik Tripathi, Ali Tejani, Tessa Cook"
+    conference_short: "Radiology"
+    conference: "Radiology, 2025"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Demonstrated viability of open-source LLMs for clinical radiology tasks."
+
+  - title: "Large Language Models in Health Systems: Governance, Challenges, and Solutions"
+    authors: "Satvik Tripathi, Kyle Mongeau, Dana Alkhulaifat, Ameena Elahi, Tessa S. Cook"
+    conference_short: "Academic Radiology"
+    conference: "Academic Radiology, 2024"
+    links:
+      - label: "Journal"
+        url: "#"
+    notes: "Addressed governance and implementation barriers for LLM deployment."
+
+  - title: "Large Language Models as an Academic Resource for Radiologists Stepping into Artificial Intelligence Research"
+    authors: "Satvik Tripathi et al."
+    conference_short: "Current Problems in Diagnostic Radiology"
+    conference: "Current Problems in Diagnostic Radiology, 2024"
+    links:
+      - label: "Journal"
+        url: "#"
+
+  - title: "Understanding Biases and Disparities in Radiology AI Datasets: A Review"
+    authors: "Satvik Tripathi et al."
+    conference_short: "JACR"
+    conference: "Journal of the American College of Radiology, 2023"
+    links:
+      - label: "Journal"
+        url: "#"
+
+  - title: "RadGenNets: Deep Learning-Based Radiogenomics Model for Gene Mutation Prediction in Lung Cancer"
+    authors: "Satvik Tripathi et al."
+    conference_short: "Informatics in Medicine Unlocked"
+    conference: "Informatics in Medicine Unlocked, 2022"
+    links:
+      - label: "Journal"
+        url: "#"
