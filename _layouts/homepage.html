@@ -36,6 +36,11 @@
             {% if site.tagline %}
             <p class="identity__tagline">{{ site.tagline }}</p>
             {% endif %}
+            <div class="hero-ctas" aria-label="Primary actions">
+              <a class="btn btn--primary" href="#publications">Publications</a>
+              <a class="btn btn--outline" href="#initiatives">Research</a>
+              <a class="btn btn--outline" href="#service">Contact</a>
+            </div>
             {% if site.affiliations %}
             <ul class="identity__affiliations">
               {% for affiliation in site.affiliations %}
@@ -68,7 +73,7 @@
         </div>
       </div>
       <div class="container site-nav-wrapper">
-        <button class="site-nav__toggle glass glass--light" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
           <span class="site-nav__toggle-box" aria-hidden="true">
             <span class="site-nav__toggle-line"></span>
             <span class="site-nav__toggle-line"></span>
@@ -76,7 +81,7 @@
           </span>
           <span class="site-nav__toggle-label">Menu</span>
         </button>
-        <nav id="site-navigation" class="site-nav glass" aria-label="Section navigation">
+        <nav id="site-navigation" class="site-nav" aria-label="Section navigation">
           <a href="#about">About</a>
           <a href="#snapshot">Snapshot</a>
           <a href="#laboratories">Laboratories</a>
