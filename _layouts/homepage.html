@@ -24,11 +24,13 @@
   <body>
     <header class="site-header">
       <div class="container header-layout">
-        <div class="identity">
+        <div class="hero-top">
           {% if site.profile_image %}
-          <img class="identity__avatar" src="{{ site.profile_image }}" alt="Portrait of {{ site.title }}">
+          <div class="hero-photo">
+            <img class="identity__avatar" src="{{ site.profile_image }}" alt="Portrait of {{ site.title }}">
+          </div>
           {% endif %}
-          <div class="identity__text glass">
+          <div class="hero-card">
             <h1 class="identity__name">{{ site.title }}</h1>
             {% if site.role %}
             <p class="identity__role">{{ site.role }}</p>
@@ -36,6 +38,11 @@
             {% if site.tagline %}
             <p class="identity__tagline">{{ site.tagline }}</p>
             {% endif %}
+            <div class="hero-ctas" aria-label="Primary actions">
+              <a class="btn btn--primary" href="#publications">Publications</a>
+              <a class="btn btn--outline" href="#initiatives">Research</a>
+              <a class="btn btn--outline" href="#service">Contact</a>
+            </div>
             {% if site.affiliations %}
             <ul class="identity__affiliations">
               {% for affiliation in site.affiliations %}
@@ -50,25 +57,26 @@
             </ul>
             {% endif %}
           </div>
-        </div>
-        <div class="contact-block">
-          {% if site.location %}
-          <p class="contact-block__item">{{ site.location }}</p>
-          {% endif %}
-          {% if site.email %}
-          <p class="contact-block__item">{{ site.email }}</p>
-          {% endif %}
-          {% if site.social_links %}
-          <nav class="contact-block__links" aria-label="Profile links">
-            {% for link in site.social_links %}
-            <a href="{{ link.url }}">{{ link.label }}</a>
-            {% endfor %}
-          </nav>
-          {% endif %}
+          <aside class="hero-social" aria-label="Contact and profile links">
+            <p class="hero-social__label">Connect</p>
+            {% if site.location %}
+            <p class="contact-block__item">{{ site.location }}</p>
+            {% endif %}
+            {% if site.email %}
+            <p class="contact-block__item">{{ site.email }}</p>
+            {% endif %}
+            {% if site.social_links %}
+            <nav class="contact-block__links" aria-label="Profile links">
+              {% for link in site.social_links %}
+              <a href="{{ link.url }}">{{ link.label }}</a>
+              {% endfor %}
+            </nav>
+            {% endif %}
+          </aside>
         </div>
       </div>
-      <div class="container site-nav-wrapper">
-        <button class="site-nav__toggle glass glass--light" type="button" aria-expanded="false" aria-controls="site-navigation">
+      <div class="container site-nav-wrapper" role="navigation">
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
           <span class="site-nav__toggle-box" aria-hidden="true">
             <span class="site-nav__toggle-line"></span>
             <span class="site-nav__toggle-line"></span>
@@ -76,7 +84,7 @@
           </span>
           <span class="site-nav__toggle-label">Menu</span>
         </button>
-        <nav id="site-navigation" class="site-nav glass" aria-label="Section navigation">
+        <nav id="site-navigation" class="site-nav" aria-label="Section navigation">
           <a href="#about">About</a>
           <a href="#snapshot">Snapshot</a>
           <a href="#laboratories">Laboratories</a>

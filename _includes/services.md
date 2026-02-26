@@ -1,4 +1,4 @@
-<section id="service" class="section glass">
+<section id="service" class="section">
   <div class="section-header">
     <p class="section-kicker">Leadership</p>
     <h2 class="section-title">Service &amp; Recognition</h2>
