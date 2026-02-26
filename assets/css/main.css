@@ -563,9 +563,13 @@ button:focus-visible {
   .contact-block__item {
     text-align: left;
   }
+}
 
-  .contact-block__links {
-    justify-content: flex-start;
+@media (max-width: 760px) {
+  :root { --nav-height: 64px; }
+
+  .container {
+    width: calc(100% - 1.5rem);
   }
 
   .section-grid {
@@ -577,7 +581,6 @@ button:focus-visible {
   .service-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
 @media (max-width: 760px) {
   :root { --nav-height: 64px; }
