@@ -14,16 +14,10 @@ layout: homepage
         Satvik Tripathi is a researcher at the Perelman School of Medicine at the University of Pennsylvania, working across Radiology and Radiation Oncology with a focus on clinically relevant AI for radiology, oncology, and patient-centered care.
       </p>
       <p>
-        He is an Innovation Fellow at the Penn Center for Cancer Care Innovation (PC3I) within the Abramson Cancer Center, advancing cancer care delivery through health system innovation and AI to improve quality, equity, and patient-centered outcomes.
+He is also a visiting student and researcher at the Department of Radiology at Harvard Medical School/Mass General Hospital, as well as the Athinoula A. Martinos Center for Biomedical Imaging. Working on advanced AI methods in Vascular and Interventional Radiology.
       </p>
       <p>
-        In parallel, he is a research assistant at the Athinoula A. Martinos Center for Biomedical Imaging and in the Division of Vascular &amp; Interventional Radiology at Mass General Hospital / Harvard Medical School, contributing to imaging AI methods and clinical applications in vascular radiology.
-      </p>
-      <p>
-        He also serves as an AI Scientist with RAD-AID International and is on the RSNA Radiology: Artificial Intelligence Trainee Editorial Board, with additional editorial leadership in the Radiology AI Podcast.
-      </p>
-      <p>
-        He holds leadership roles within SIIM, including Jr. Vice Chair (Membership Committee), and serves on SIIM’s Global Outreach and Machine Learning Education committees.
+Currently serving on the RSNA Radiology AI Trainee Editorial Board, as an AI scientist for RAD-AID international, and as a committee member for SIIM and EUSOMII.
       </p>
     </div>
     <div class="detail-card">
@@ -55,8 +49,8 @@ layout: homepage
         <p class="stat-label">Core themes across radiology AI, oncology, LLMs, and global health</p>
       </div>
       <div class="stat-card">
-        <p class="stat-value">4+</p>
-        <p class="stat-label">Leadership and service roles (RAD-AID, RSNA, SIIM)</p>
+        <p class="stat-value">4</p>
+        <p class="stat-label">Service roles in radiology AI organizations</p>
       </div>
     </div>
     <ul class="highlight-list">
@@ -87,7 +81,7 @@ layout: homepage
       </p>
     </article>
     <article class="card">
-      <h3>MGH / Harvard Medical School</h3>
+      <h3>MGH/HMS Martinos Center</h3>
       <ul>
         <li>Athinoula A. Martinos Center for Biomedical Imaging — Quantitative Translational Imaging in Medicine (QTIM)</li>
         <li>Division of Vascular &amp; Interventional Radiology at MGH</li>
@@ -106,11 +100,11 @@ layout: homepage
     <p class="section-subtitle">Key topics guiding current research and innovation priorities.</p>
   </div>
   <div class="chip-list">
-    <span class="chip">Radiology AI Implementation</span>
-    <span class="chip">Oncology and Care Delivery Innovation</span>
+    <span class="chip">Onco Imaging</span>
+    <span class="chip">Explainable AI</span>
     <span class="chip">Large Language Models</span>
-    <span class="chip">Vision-Language Models</span>
-    <span class="chip">Clinical Informatics and Workflow Evaluation</span>
+    <span class="chip">Clinical Informatics</span>
+    <span class="chip">Patient-Centered Care</span>
     <span class="chip">Global Health Informatics</span>
   </div>
 </section>
@@ -127,12 +121,12 @@ layout: homepage
       <p>Deployment-oriented AI tools for imaging workflows, focusing on real-world evaluation, safety, and clinician feedback.</p>
     </article>
     <article class="card">
-      <h3>Cancer Care Innovation</h3>
-      <p>AI-enabled health system innovation for quality, equity, and patient-centered outcomes through Penn Medicine partnerships.</p>
+      <h3>Interventional Imaging Intelligence</h3>
+      <p>Advanced imaging analytics for vascular and interventional radiology, from procedural planning to outcomes.</p>
     </article>
     <article class="card">
-      <h3>Global Health and Equity</h3>
-      <p>Scalable AI infrastructure and deployment in low- and middle-income settings through global partnerships and RAD-AID outreach.</p>
+      <h3>Global Health &amp; Equity</h3>
+      <p>Scaling AI that improves access to radiology expertise while maintaining safety and equity metrics.</p>
     </article>
   </div>
 </section>
@@ -145,20 +139,16 @@ layout: homepage
   </div>
   <ul class="news-list">
     <li class="news-item">
-      <time datetime="2025-11">Nov 2025</time>
-      <p>Appointed Associate Editor, Radiology AI Podcast.</p>
+      <time datetime="2024-05">May 2024</time>
+      <p>Our abstract was selected as one of the top 20 abstracts at the 2024 National Neurotrauma Symposium.</p>
     </li>
     <li class="news-item">
-      <time datetime="2025-08">Aug 2025</time>
-      <p>Selected for the RSNA Radiology: Artificial Intelligence Trainee Editorial Board.</p>
+      <time datetime="2024-05">May 2024</time>
+      <p>Received a prestigious trainee travel award from the National Neurotrauma Society.</p>
     </li>
     <li class="news-item">
-      <time datetime="2025-06">Jun 2025</time>
-      <p>Began Innovation Fellowship at the Penn Center for Cancer Care Innovation (PC3I).</p>
-    </li>
-    <li class="news-item">
-      <time datetime="2025-02">Feb 2025</time>
-      <p>Joined RAD-AID International as an AI Scientist.</p>
+      <time datetime="2024-04">April 2024</time>
+      <p>Won the $5k grand prize in the advanced track at the 2024 Philly CodeFest.</p>
     </li>
   </ul>
 </section>

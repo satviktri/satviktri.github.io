@@ -24,41 +24,42 @@
   <body>
     <header class="site-header">
       <div class="container header-layout">
-        <div class="hero-top">
-          {% if site.profile_image %}
-          <div class="hero-photo">
-            <img class="identity__avatar" src="{{ site.profile_image }}" alt="Portrait of {{ site.title }}">
-          </div>
-          {% endif %}
-          <div class="hero-card">
-            <h1 class="identity__name">{{ site.title }}</h1>
-            {% if site.role %}
-            <p class="identity__role">{{ site.role }}</p>
-            {% endif %}
-            {% if site.tagline %}
-            <p class="identity__tagline">{{ site.tagline }}</p>
-            {% endif %}
-            <div class="hero-ctas" aria-label="Primary actions">
-              <a class="btn btn--primary" href="#publications">Publications</a>
-              <a class="btn btn--outline" href="#initiatives">Research</a>
-              <a class="btn btn--outline" href="#service">Contact</a>
+        <div class="hero-top-shell">
+          <div class="hero-top">
+            {% if site.profile_image %}
+            <div class="hero-photo">
+              <img class="identity__avatar" src="{{ site.profile_image }}" alt="Portrait of {{ site.title }}">
             </div>
-            {% if site.affiliations %}
-            <ul class="identity__affiliations">
-              {% for affiliation in site.affiliations %}
-              <li>
-                {% if affiliation.url %}
-                <a href="{{ affiliation.url }}">{{ affiliation.name }}</a>
-                {% else %}
-                {{ affiliation.name }}
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
             {% endif %}
-          </div>
-          <aside class="hero-social" aria-label="Contact and profile links">
-            <p class="hero-social__label">Connect</p>
+            <div class="hero-card">
+              <h1 class="identity__name">{{ site.title }}</h1>
+              {% if site.role %}
+              <p class="identity__role">{{ site.role }}</p>
+              {% endif %}
+              {% if site.tagline %}
+              <p class="identity__tagline">{{ site.tagline }}</p>
+              {% endif %}
+              <div class="hero-ctas" aria-label="Primary actions">
+                <a class="btn btn--primary" href="#publications">Publications</a>
+                <a class="btn btn--outline" href="#initiatives">Research</a>
+                <a class="btn btn--outline" href="#service">Contact</a>
+              </div>
+              {% if site.affiliations %}
+              <ul class="identity__affiliations">
+                {% for affiliation in site.affiliations %}
+                <li>
+                  {% if affiliation.url %}
+                  <a href="{{ affiliation.url }}">{{ affiliation.name }}</a>
+                  {% else %}
+                  {{ affiliation.name }}
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+            <aside class="hero-social" aria-label="Contact and profile links">
+              <p class="hero-social__label">Connect</p>
             {% if site.location %}
             <p class="contact-block__item">{{ site.location }}</p>
             {% endif %}
@@ -72,7 +73,8 @@
               {% endfor %}
             </nav>
             {% endif %}
-          </aside>
+            </aside>
+          </div>
         </div>
       </div>
       <div class="container site-nav-wrapper" role="navigation">
