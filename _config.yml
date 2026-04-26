@@ -5,7 +5,7 @@ permalink: pretty
 # Personal details
 title: Satvik Tripathi
 tagline: "Clinically Relevant AI for Radiology, Oncology, and Global Health"
-role: "Researcher"
+role: "Doctoral Student"
 description: "Satvik Tripathi's personal research website."
 keywords: [Satvik Tripathi, radiology, medical imaging, artificial intelligence, Penn Medicine, Harvard Medical School]
 canonical: https://satviktri.github.io/
@@ -29,7 +29,7 @@ social_links:
     url: https://x.com/Satvikt_ai
   - label: Email
     url: mailto:Satvik.tripathi@pennmedicine.upenn.edu
-  
+
 
 # Analytics
 google_analytics: G-V08WLNR7E2
