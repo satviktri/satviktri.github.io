@@ -626,7 +626,6 @@ button:focus-visible {
   .service-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
 @media (max-width: 760px) {
   :root { --nav-height: 64px; }
