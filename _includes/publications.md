@@ -1,5 +1,9 @@
 <section id="publications" class="section">
-  <h2 class="section-title">Selected Publications</h2>
+  <div class="section-header">
+    <p class="section-kicker">Publications</p>
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">Recent work spanning radiology AI, LLMs, and clinical translation.</p>
+  </div>
   {% assign publications = site.data.publications.selected | default: site.data.publications.main | default: [] %}
   {% if publications.size > 0 %}
   <div class="publication-list">
@@ -41,7 +45,4 @@
     </article>
     {% endfor %}
   </div>
-  {% else %}
-  <p class="empty-state">A curated publication list is coming soon.</p>
-  {% endif %}
 </section>
