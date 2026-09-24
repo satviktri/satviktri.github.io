@@ -1,0 +1,11 @@
+<article class="publication">
+  <h4 class="publication__title"><a href="{{ include.paper.url | escape }}">{{ include.paper.title | escape }}</a></h4>
+  <p class="publication__meta">{{ include.paper.authors | escape }}</p>
+  <p class="publication__meta"><strong>{{ include.paper.venue | escape }}</strong> · {{ include.paper.year }} · {{ include.paper.type | escape }}</p>
+  {% if include.paper.summary %}<p>{{ include.paper.summary | escape }}</p>{% endif %}
+  <div class="publication__links">
+    <a href="{{ include.paper.url | escape }}">{{ include.paper.link_label | default: 'Article' }}</a>
+    {% if include.paper.code %}<a href="{{ include.paper.code | escape }}">Code</a>{% endif %}
+    {% if include.paper.project %}<a href="{{ include.paper.project | escape }}">Project</a>{% endif %}
+  </div>
+</article>

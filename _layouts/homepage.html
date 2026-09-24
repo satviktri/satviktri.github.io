@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.title }}{% if site.tagline %} · {{ site.tagline }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{{ site.description | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title | escape }}">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta property="og:url" content="{{ site.canonical }}">
+    <meta property="og:image" content="{{ site.profile_image | absolute_url }}">
+    <meta name="twitter:card" content="summary">
     {% if site.keywords %}
     <meta name="keywords" content="{{ site.keywords | join: ', ' }}">
     {% endif %}
@@ -22,6 +28,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container header-layout">
         <div class="hero-top-shell">
@@ -40,9 +47,10 @@
               <p class="identity__tagline">{{ site.tagline }}</p>
               {% endif %}
               <div class="hero-ctas" aria-label="Primary actions">
-                <a class="btn btn--primary" href="#publications">Publications</a>
-                <a class="btn btn--outline" href="#initiatives">Research</a>
-                <a class="btn btn--outline" href="#service">Contact</a>
+                <a class="btn btn--primary" href="#initiatives">Research</a>
+                <a class="btn btn--outline" href="#publications">Publications</a>
+                <a class="btn btn--outline" href="{{ '/assets/files/curriculum_vitae.pdf' | relative_url }}">CV (PDF)</a>
+                <a class="btn btn--outline" href="#contact">Contact</a>
               </div>
               {% if site.affiliations %}
               <ul class="identity__affiliations">
@@ -88,22 +96,24 @@
         </button>
         <nav id="site-navigation" class="site-nav" aria-label="Section navigation">
           <a href="#about">About</a>
-          <a href="#snapshot">Snapshot</a>
-          <a href="#laboratories">Laboratories</a>
-          <a href="#interests">Research Interests</a>
-          <a href="#initiatives">Initiatives</a>
-          <a href="#news">News</a>
+          <a href="#initiatives">Research</a>
+          <a href="#global-health">Global Health</a>
           <a href="#publications">Publications</a>
+          <a href="#background">Background</a>
+          <a href="#news">News</a>
+          <a href="#speaking">Speaking</a>
           <a href="#service">Service</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
-    <main class="container main-content">
+    <main id="main-content" class="container main-content">
       {{ content }}
     </main>
     <footer class="site-footer">
       <div class="container">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        <p>Content updated {{ site.content_updated }}.</p>
       </div>
     </footer>
     <script>
@@ -126,7 +136,7 @@
           }
         });
         window.addEventListener('resize', function () {
-          if (window.matchMedia('(min-width: 721px)').matches) {
+          if (window.matchMedia('(min-width: 761px)').matches) {
             nav.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
           }

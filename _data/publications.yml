@@ -1,47 +1,213 @@
-name: Update PubMed Publications
-
-on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
-  workflow_dispatch:
-
-jobs:
-  fetch_pubmed_publications:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install biopython
-
-      - name: Fetch publications from PubMed
-        run: |
-          python - << 'EOF'
-          from Bio import Entrez
-
-          # Set your email (required by NCBI)
-          Entrez.email = "your-email@example.com"
-
-          # Define your query for the author "Satvik Tripathi"
-          query = '"Satvik Tripathi"[Author]'
-
-          # Search PubMed for matching records (retmax sets the maximum number of results)
-          handle = Entrez.esearch(db="pubmed", term=query, retmax=20)
-          record = Entrez.read(handle)
-          id_list = record.get('IdList', [])
-          
-          if not id_list:
-              print("No publications found for Satvik Tripathi.")
-          else:
-              print("Found publications with PubMed IDs:")
-              for pub_id in id_list:
-                  print(f"- {pub_id}")
-          EOF
+{
+  "selected": [
+    {
+      "title": "Tools and Architectures for Agentic Systems in Clinical AI and Radiology",
+      "authors": "Satvik Tripathi, Kristian Quevada, Shahriar Faghani, Pratham Khandelwal, Don Enwerem, and Tessa S. Cook",
+      "venue": "European Journal of Radiology Artificial Intelligence",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.ejrai.2026.100131",
+      "summary": "An overview of tools and architectures for building agentic systems in clinical AI and radiology.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Less Is More: Radiologists Prefer Brief Narratives in LLM-Generated Clinical History Summaries",
+      "authors": "Shawn Lyo, Satvik Tripathi, Ali Tejani, David Vu, Siddhant Dogra, Hamza Alizai, and Tessa Cook",
+      "venue": "Journal of Digital Imaging. Informatics in Medicine",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s10278-026-02229-y",
+      "summary": "An evaluation of radiologists’ preferences for the format and length of generated clinical histories.",
+      "type": "Journal article"
+    },
+    {
+      "title": "A Systems Approach toward AI-Enabled Radiology Dictation for Workflow Efficiency in India",
+      "authors": "Satvik Tripathi and Tessa Cook",
+      "venue": "Indian Journal of Radiology and Imaging",
+      "year": 2026,
+      "url": "https://doi.org/10.1055/s-0046-1827765",
+      "summary": "A systems perspective on AI-enabled dictation and radiology workflow in India.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Are radiologists the new AI product managers?",
+      "authors": "Satvik Tripathi, Ali Tejani, Paul Yi, and Dania Daye",
+      "venue": "European Journal of Radiology",
+      "year": 2026,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0720048X2600522X",
+      "summary": "A perspective on radiologists’ role in shaping the development and adoption of AI.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Agentic AI in Radiology",
+      "authors": "Satvik Tripathi, Tessa Cook, and Woojin Kim",
+      "venue": "Radiology",
+      "year": 2026,
+      "url": "https://doi.org/10.1148/radiol.252730",
+      "summary": "A perspective on agentic AI and its implications for radiology.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Positive act of reporting negative results in large language model research: a call for transparency",
+      "authors": "Satvik Tripathi, Dana Alkhulaifat, and Tessa S. Cook",
+      "venue": "Journal of the American Medical Informatics Association",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/jamia/ocaf221",
+      "summary": "An argument for reporting negative findings to strengthen transparency in LLM research.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report",
+      "authors": "Satvik Tripathi, Dana Alkhulaifat, Florence X. Doo, Pranav Rajpurkar, Rafe McBeth, Dania Daye, and Tessa S. Cook",
+      "venue": "NEJM AI",
+      "year": 2025,
+      "url": "https://doi.org/10.1056/AIp2401106",
+      "summary": "A reporting checklist for the development, evaluation, and assessment of LLM studies.",
+      "type": "Journal article"
+    },
+    {
+      "title": "PRECISE framework: Enhanced radiology reporting with GPT for improved readability, reliability, and patient-centered care",
+      "authors": "Satvik Tripathi et al.",
+      "venue": "European Journal of Radiology",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.ejrad.2025.112124",
+      "summary": "A framework for evaluating the readability and reliability of patient-facing radiology reports.",
+      "type": "Journal article"
+    }
+  ],
+  "more": [
+    {
+      "title": "Retrieval-Augmented Language Models for Patient-Centered Periprocedural Anticoagulation in Interventional Radiology",
+      "authors": "Hossam A. Zaki, Allison Brea, Krishnaveni Parvataneni, Hadeel Saab, Christopher P. Bridge, Satvik Tripathi, and Dania Daye",
+      "venue": "CardioVascular and Interventional Radiology",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s00270-026-04428-0",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "Toward Pediatric Patient–Friendly Education Material Using Generative Artificial Intelligence",
+      "authors": "Satvik Tripathi, Dana Alkhulaifat, Hansel J. Otero, and Tessa S. Cook",
+      "venue": "Journal of the American College of Radiology",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.jacr.2025.07.009",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "A Hitchhiker's Guide to Good Prompting Practices for Large Language Models in Radiology",
+      "authors": "Satvik Tripathi, Dana Alkhulaifat, Shawn Lyo, Rithvik Sukumaran, Bolin Li, Vedant Acharya, Rafe McBeth, and Tessa S. Cook",
+      "venue": "Journal of the American College of Radiology",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.jacr.2025.02.051",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "Large Language Models for Global Health Clinics: Opportunities and Challenges",
+      "authors": "Satvik Tripathi, Dana Alkhulaifat, Meghana Muppuri, Ameena Elahi, and Farouk Dako",
+      "venue": "Journal of the American College of Radiology",
+      "year": 2025,
+      "url": "https://www.jacr.org/article/S1546-1440(25)00205-4/abstract",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "Beyond Proprietary Models: The Potential of Open-Source Large Language Models in Radiology",
+      "authors": "Satvik Tripathi, Ali Tejani, and Tessa S. Cook",
+      "venue": "Radiology",
+      "year": 2025,
+      "url": "https://doi.org/10.1148/radiol.242454",
+      "summary": "A perspective on the potential and practical considerations of open-source LLMs.",
+      "type": "Journal article"
+    },
+    {
+      "title": "Large Language Models as an Academic Resource for Radiologists Stepping into Artificial Intelligence Research",
+      "authors": "Satvik Tripathi, Jay Patel, Liam Mutter, Felix J. Dorfner, Christopher P. Bridge, and Dania Daye",
+      "venue": "Current Problems in Diagnostic Radiology",
+      "year": 2025,
+      "url": "https://doi.org/10.1067/j.cpradiol.2024.12.004",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "Large Language Models in Health Systems: Governance, Challenges, and Solutions",
+      "authors": "Satvik Tripathi, Kyle Mongeau, Dana Alkhulaifat, Ameena Elahi, and Tessa S. Cook",
+      "venue": "Academic Radiology",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.acra.2024.09.047",
+      "type": "Journal article",
+      "summary": "Governance and implementation considerations for LLMs in health systems."
+    },
+    {
+      "title": "Understanding Biases and Disparities in Radiology AI Datasets: A Review",
+      "authors": "Satvik Tripathi et al.",
+      "venue": "Journal of the American College of Radiology",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.jacr.2023.06.015",
+      "summary": "",
+      "type": "Journal article"
+    },
+    {
+      "title": "RadGenNets: Deep learning-based radiogenomics model for gene mutation prediction in lung cancer",
+      "authors": "Satvik Tripathi et al.",
+      "venue": "Informatics in Medicine Unlocked",
+      "year": 2022,
+      "url": "https://www.sciencedirect.com/science/article/pii/S235291482200199X",
+      "summary": "",
+      "type": "Journal article"
+    }
+  ],
+  "preprints": [
+    {
+      "title": "MARC v1: An Open-Source Multi-Agent Framework for Clinical AI Reasoning and Coordination",
+      "authors": "Saisha Shetty, Satvik Tripathi, Austin Lin, Colin Zhao, Theodore Kim, Don Enwerem, Jacinta Arnold, Shahriar Faghani, and Tessa S. Cook",
+      "venue": "arXiv",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2608.13476",
+      "summary": "",
+      "type": "Preprint",
+      "link_label": "Preprint",
+      "code": "https://github.com/Penn-RAIL/MARC-v1"
+    },
+    {
+      "title": "SPARC-Rad: A Multimodal Benchmark Dataset and Evaluation Pipeline for Spatial and Anatomical Reasoning in Radiology Vision-Language Models",
+      "authors": "Satvik Tripathi et al.",
+      "venue": "arXiv",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2608.00100",
+      "summary": "",
+      "type": "Preprint",
+      "link_label": "Preprint",
+      "project": "https://penn-rail.github.io/SPARC-Rad-Benchmark/"
+    },
+    {
+      "title": "CheckSupport: A Local LLM-Powered Tool for Automated Manuscript Submission Checklist Selection and Completion",
+      "authors": "Satvik Tripathi, Don Enwerem, Kevin Song, Kristian Quevada, Jacinta Arnold, and Tessa S. Cook",
+      "venue": "arXiv",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2605.16377",
+      "summary": "",
+      "type": "Preprint",
+      "link_label": "Preprint"
+    },
+    {
+      "title": "Logic Sketch Prompting (LSP): A Deterministic and Interpretable Prompting Method",
+      "authors": "Satvik Tripathi",
+      "venue": "arXiv",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2512.22258",
+      "summary": "A structured prompting method for explicit, interpretable task reasoning.",
+      "type": "Preprint",
+      "link_label": "Preprint"
+    },
+    {
+      "title": "Chameleon Dataset: A Large Multi-Pathology Synthetic Chest CT Radiology Reports Dataset",
+      "authors": "Satvik Tripathi, Don Enwerem, Dana Alkhulaifat, Rithvik Sukumaran, Charles Chambers, Darco Levic, Dania Daye, and Tessa Cook",
+      "venue": "SSRN",
+      "year": 2025,
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5386019",
+      "summary": "A synthetic chest CT report dataset for radiology language-model research.",
+      "type": "Preprint",
+      "link_label": "Preprint"
+    }
+  ]
+}

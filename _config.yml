@@ -4,10 +4,14 @@ permalink: pretty
 
 # Personal details
 title: Satvik Tripathi
-tagline: "Clinically Relevant AI for Radiology, Oncology, and Global Health"
-role: "Doctoral Student"
-description: "Satvik Tripathi's personal research website."
-keywords: [Satvik Tripathi, radiology, medical imaging, artificial intelligence, Penn Medicine, Harvard Medical School]
+tagline: "Medical imaging AI, cancer care, and global health"
+role: "PhD Student · Master in Law Student"
+description: "Satvik Tripathi is a Penn PhD and Master in Law student developing and evaluating AI for medical imaging, cancer care, and global health."
+keywords: [Satvik Tripathi, medical physics, radiology, medical imaging, artificial intelligence, health law, Penn Medicine, global health]
+url: https://satviktri.github.io
+baseurl: ""
+content_updated: "September 2026"
+location: "Philadelphia, Pennsylvania"
 canonical: https://satviktri.github.io/
 profile_image: /assets/img/profile.jpg
 favicon: /assets/img/favicon.png
@@ -15,12 +19,14 @@ favicon_dark: /assets/img/favicon-dark.png
 
 # Affiliations and links
 affiliations:
-  - name: Perelman School of Medicine, University of Pennsylvania
-    url: https://www3.pennmedicine.org/departments-and-centers/department-of-radiology
-  - name: Martinos Center, Mass General Hospital, Harvard Medical School
-    url: https://www.martinos.org/
+  - name: University of Pennsylvania · Engineering and Penn Medicine
+    url: https://www.upenn.edu/
+  - name: University of Pennsylvania Carey Law School
+    url: https://www.law.upenn.edu/admissions/master-in-law/
 
 social_links:
+  - label: GitHub
+    url: https://github.com/satviktri
   - label: LinkedIn
     url: https://www.linkedin.com/in/satvik-tripathi/
   - label: Google Scholar
@@ -28,7 +34,7 @@ social_links:
   - label: X (Twitter)
     url: https://x.com/Satvikt_ai
   - label: Email
-    url: mailto:Satvik.tripathi@pennmedicine.upenn.edu
+    url: mailto:satvik.tripathi@pennmedicine.upenn.edu
 
 
 # Analytics
