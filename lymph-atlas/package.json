@@ -1,0 +1,1 @@
+{"name":"lymph-atlas","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite","check":"node --check app.js && node --check scene.js && node --check compat-renderer.js && node --check data.js"},"devDependencies":{"vite":"6.4.1"}}

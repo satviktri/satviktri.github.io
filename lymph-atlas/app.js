@@ -1,0 +1,69 @@
+import {STRUCTURES,BY_ID,SOURCES,ROUTES,CASES,QUESTIONS} from './data.js';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const state={mode:'explore',selected:'thoracic',route:'left-leg',clinical:'sentinel',question:0,answers:[],completed:false,flow:!matchMedia('(prefers-reduced-motion: reduce)').matches,isolate:false};
+let atlas=null;
+const name=s=>(s.side?s.side+' ':'')+s.name;
+const sourceLinks=ids=>`<div class="citation-links">${[...new Set(ids)].map(id=>`<a href="${SOURCES[id].url}" target="_blank" rel="noopener">${SOURCES[id].short} ↗</a>`).join('')}</div>`;
+function getHighlights(){if(state.mode==='drainage')return ROUTES.find(r=>r.id===state.route).ids;if(state.mode==='clinical')return CASES.find(c=>c.id===state.clinical).ids;if(state.mode==='study')return state.answers[state.question]!==undefined?QUESTIONS[state.question].ids:[];return [state.selected];}
+function syncModel(){atlas?.select(getHighlights());atlas?.setRoute(state.mode==='drainage'?ROUTES.find(r=>r.id===state.route):null);}
+function ensureVisible(ids){for(const id of ids){const kind=BY_ID[id].kind,layer=kind==='node'?'nodes':kind==='organ'?'organs':'vessels';const input=$(`[data-layer="${layer}"]`);input.checked=true;atlas?.layer(layer,true);}}
+function setMode(mode){if(!['explore','drainage','clinical','study'].includes(mode))return;state.mode=mode;state.isolate=false;atlas?.isolate(false);$('#isolate').setAttribute('aria-pressed','false');$('#isolate').textContent='Isolate selection';$$('[data-mode]').forEach(b=>{b.classList.toggle('active',b.dataset.mode===mode);b.setAttribute('aria-pressed',String(b.dataset.mode===mode));});$('#browser-controls').hidden=mode!=='explore';$('#browser-controls').style.display=mode==='explore'?'':'none';$('#view-eyebrow').textContent={explore:'WHOLE BODY',drainage:'FOLLOW THE FLOW',clinical:'ANATOMY IN CONTEXT',study:'ACTIVE RECALL'}[mode];$('#view-title').textContent={explore:'Lymphatic system',drainage:'Lymphatic drainage',clinical:'Clinical connections',study:'Test your understanding'}[mode];renderBrowser();renderDetail();ensureVisible(getHighlights());syncModel();}
+function selectStructure(id){if(!BY_ID[id])return;state.selected=id;if(state.mode!=='explore')setMode('explore');else{renderBrowser();renderDetail();}ensureVisible([id]);syncModel();}
+function renderBrowser(){
+ const root=$('#browser-content');$('#structure-count').textContent=state.mode==='explore'?STRUCTURES.length:state.mode==='drainage'?ROUTES.length:state.mode==='clinical'?CASES.length:QUESTIONS.length;
+ $('#browser-title').textContent={explore:'Structures',drainage:'Drainage routes',clinical:'Clinical connections',study:'Study session'}[state.mode];
+ if(state.mode==='explore'){
+  const q=$('#search').value.toLowerCase().trim(),region=$('#region').value;
+  const records=STRUCTURES.filter(s=>(region==='all'||s.region===region)&&`${name(s)} ${s.aliases||''} ${s.region} ${s.description}`.toLowerCase().includes(q));
+  const regions=['Head & neck','Thorax','Upper limbs','Abdomen','Pelvis & lower limbs'];
+  root.innerHTML=records.length?regions.map(r=>{const ss=records.filter(s=>s.region===r);return ss.length?`<div class="group-title">${r}</div>${ss.map(s=>`<button class="structure-item ${state.selected===s.id?'selected':''}" data-structure="${s.id}" aria-pressed="${state.selected===s.id}"><span class="dot ${s.kind}"></span><span>${s.name}</span>${s.side?`<span class="side">${s.side==='Left'?'L':'R'}</span>`:''}</button>`).join('')}`:'';}).join(''):'<p class="empty">No structures match. Try “axillary,” “spleen,” or choose Whole body.</p>';
+ }else if(state.mode==='drainage')root.innerHTML='<p class="mode-note">Trace common routes from a region to the venous circulation.</p>'+ROUTES.map((r,i)=>`<button class="route-card ${r.id===state.route?'selected':''}" data-route="${r.id}" aria-pressed="${r.id===state.route}"><span class="route-number">PATHWAY ${String(i+1).padStart(2,'0')}</span><strong>${r.name}</strong><span>${r.caption}</span></button>`).join('');
+ else if(state.mode==='clinical')root.innerHTML='<p class="mode-note">Connect the anatomy with four clinical concepts.</p>'+CASES.map(c=>`<button class="clinical-card ${c.id===state.clinical?'selected':''}" data-case="${c.id}" aria-pressed="${c.id===state.clinical}"><span class="route-number">${c.category}</span><strong>${c.title}</strong><span>${c.subtitle}</span></button>`).join('');
+ else{const answered=state.answers.filter(a=>a!==undefined).length,correct=state.answers.filter((a,i)=>a===QUESTIONS[i].answer).length;root.innerHTML=`<div class="study-summary"><span class="eyebrow">KNOW THE NETWORK</span><div class="study-score">${answered}<span style="font-size:1rem;color:var(--muted)"> / ${QUESTIONS.length}</span></div><p>Questions answered</p><div class="study-progress"><span style="width:${answered/QUESTIONS.length*100}%"></span></div><p>${correct} correct so far.</p><p style="margin-top:18px">Answer each question, then see the explanation and related anatomy.</p><button class="detail-action" id="restart-study">Restart session</button></div>`;}
+}
+function renderDetail(){const d=$('#detail');
+ if(state.mode==='explore'){
+  const s=BY_ID[state.selected],idx=STRUCTURES.indexOf(s)+1;
+  d.innerHTML=`<div class="index">STRUCTURE ${String(idx).padStart(2,'0')}</div><h2>${name(s)}</h2>${s.latin?`<p class="latin">${s.latin}</p>`:''}<div class="chips"><span class="chip accent">${s.kind==='node'?'Lymph node group':s.kind==='duct'?'Lymphatic channel':'Lymphoid organ'}</span><span class="chip">${s.region}</span></div><p class="description">${s.description}</p><div class="detail-section"><h3>${s.kind==='organ'?'Functional connections':'Drainage connections'}</h3><div class="connection"><span class="connection-icon">↓</span><div><small>${s.kind==='organ'?'INPUT / EXPOSURE':'RECEIVES FROM'}</small><p>${s.receives}</p></div></div><div class="connection"><span class="connection-icon">↓</span><div><small>${s.kind==='organ'?'OUTPUT / CONNECTION':'DRAINS TOWARD'}</small><p>${s.drains}</p></div></div></div><div class="insight"><span class="eyebrow">KEEP IN MIND</span><p>${s.note}</p></div>${s.route?`<button class="detail-action" data-open-route="${s.route}">Trace a related pathway</button>`:''}${sourceLinks(s.sources)}`;
+ }else if(state.mode==='drainage'){
+  const r=ROUTES.find(r=>r.id===state.route);d.innerHTML=`<div class="index">DRAINAGE PATHWAY</div><h2>${r.name}</h2><div class="chips"><span class="chip accent">Tissue to vein</span></div><p class="description">${r.description}</p><ol class="path-steps">${r.steps.map(([label,sub],i)=>`<li><span class="step-number">${i+1}</span><div class="step-label">${BY_ID[label]?`<button data-structure="${label}">${name(BY_ID[label])}</button>`:label}${sub?`<small>${sub}</small>`:''}</div></li>`).join('')}</ol><div class="insight"><span class="eyebrow">A COMMON ROUTE</span><p>White markers travel toward venous return. Intermediate vessels are simplified; individual connections vary.</p></div>${sourceLinks(r.sources)}`;
+ }else if(state.mode==='clinical'){
+  const c=CASES.find(c=>c.id===state.clinical);d.innerHTML=`<div class="index">${c.category}</div><h2>${c.title}</h2><div class="chips"><span class="chip accent">Clinical anatomy</span></div><p class="description">${c.text}</p><div class="detail-section"><h3>Related structures</h3>${c.ids.map(id=>`<button class="structure-item" data-structure="${id}"><span class="dot ${BY_ID[id].kind}"></span>${name(BY_ID[id])}</button>`).join('')}</div><div class="insight"><span class="eyebrow">INTERPRET WITH CARE</span><p>${c.note}</p></div>${sourceLinks(c.sources)}`;
+ }else if(state.completed){const score=state.answers.filter((a,i)=>a===QUESTIONS[i].answer).length;d.innerHTML=`<div class="index">SESSION COMPLETE</div><h2>Your network knowledge</h2><div class="study-score">${score} / ${QUESTIONS.length}</div><p class="description">${score===QUESTIONS.length?'All correct. You have the key connections in place.':'Review the explanations below, then try another pass.'}</p>${QUESTIONS.map((q,i)=>`<div class="detail-section"><h3>${state.answers[i]===q.answer?'CORRECT':'REVIEW'} · QUESTION ${i+1}</h3><p>${q.q}</p><p style="margin-top:8px;color:var(--mint)">${q.options[q.answer]}</p></div>`).join('')}<button class="detail-action" id="restart-study">Try again</button>`;
+ }else{
+  const q=QUESTIONS[state.question],a=state.answers[state.question],answered=a!==undefined;
+  d.innerHTML=`<div class="index">QUESTION ${state.question+1} OF ${QUESTIONS.length}</div><h2 style="font-size:1.3rem;line-height:1.45">${q.q}</h2><div style="margin-top:24px">${q.options.map((option,i)=>`<button class="answer ${answered&&i===q.answer?'correct':''} ${answered&&i===a&&i!==q.answer?'incorrect':''}" data-answer="${i}" ${answered?'disabled':''}>${String.fromCharCode(65+i)}. ${option}</button>`).join('')}</div>${answered?`<div class="feedback"><strong>${a===q.answer?'Correct.':'The correct answer is '+String.fromCharCode(65+q.answer)+'.'}</strong>${q.explain}</div>${sourceLinks(q.sources)}<button class="detail-action" id="next-question">${state.question===QUESTIONS.length-1?'See results':'Next question'}</button>`:'<p class="muted" style="font-size:.8rem;line-height:1.5;margin-top:18px">Choose an answer to reveal the explanation and highlight the anatomy.</p>'}`;
+ }
+}
+function openRoute(id){state.route=id;setMode('drainage');}
+function restart(){state.question=0;state.answers=[];state.completed=false;setMode('study');}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.mode)setMode(b.dataset.mode);
+ if(b.dataset.structure)selectStructure(b.dataset.structure);
+ if(b.dataset.route){state.route=b.dataset.route;renderBrowser();renderDetail();ensureVisible(getHighlights());syncModel();}
+ if(b.dataset.openRoute)openRoute(b.dataset.openRoute);
+ if(b.dataset.case){state.clinical=b.dataset.case;renderBrowser();renderDetail();ensureVisible(getHighlights());syncModel();}
+ if(b.dataset.view){atlas?.view(b.dataset.view);$$('[data-view]').forEach(x=>x.classList.toggle('active',x===b));}
+ if(b.dataset.answer!==undefined&&state.mode==='study'&&state.answers[state.question]===undefined){state.answers[state.question]=Number(b.dataset.answer);renderBrowser();renderDetail();ensureVisible(getHighlights());syncModel();}
+ if(b.id==='next-question'){if(state.question<QUESTIONS.length-1)state.question++;else state.completed=true;renderBrowser();renderDetail();syncModel();}
+ if(b.id==='restart-study')restart();
+});
+$('#search').addEventListener('input',renderBrowser);$('#region').addEventListener('change',renderBrowser);
+$$('[data-layer]').forEach(input=>input.addEventListener('change',()=>atlas?.layer(input.dataset.layer,input.checked)));
+$('#show-labels').addEventListener('change',e=>atlas?.labels(e.target.checked));
+function flowLabel(){$('#flow-toggle').setAttribute('aria-pressed',String(state.flow));$('#flow-icon').textContent=state.flow?'Ⅱ':'▷';$('#flow-text').textContent=state.flow?'Pause flow':'Animate flow';}
+$('#flow-toggle').addEventListener('click',()=>{state.flow=!state.flow;atlas?.flow(state.flow);flowLabel();});
+$('#isolate').addEventListener('click',()=>{state.isolate=!state.isolate;atlas?.isolate(state.isolate);$('#isolate').setAttribute('aria-pressed',String(state.isolate));$('#isolate').textContent=state.isolate?'Show surrounding anatomy':'Isolate selection';});
+$('#reset').addEventListener('click',()=>{atlas?.reset();state.isolate=false;$$('[data-layer]').forEach(i=>i.checked=true);$('#show-labels').checked=true;$('#isolate').setAttribute('aria-pressed','false');$('#isolate').textContent='Isolate selection';$$('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view==='front'));});
+$('#source-list').innerHTML=Object.values(SOURCES).map(s=>`<div class="source-item"><a href="${s.url}" target="_blank" rel="noopener">${s.title} ↗</a><small>${s.scope}</small></div>`).join('');
+$('#references').addEventListener('click',()=>$('#sources-dialog').showModal());$('#close-sources').addEventListener('click',()=>$('#sources-dialog').close());$('#sources-dialog').addEventListener('click',e=>{if(e.target===$('#sources-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)&&!$('#sources-dialog').open){e.preventDefault();setMode('explore');$('#search').focus();}});
+setMode('explore');flowLabel();
+import('./scene.js').then(({createAtlas})=>{atlas=createAtlas(selectStructure);atlas.flow(state.flow);syncModel();}).catch(error=>{console.error('3D viewer unavailable:',error);$('#viewer-error').hidden=false;});
+// Optional browser-native agent access; the visible controls use the same actions.
+if(document.modelContext?.registerTool){
+ const lifecycle=new AbortController();window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
+ const tools=[{name:'list_lymph_structures',description:'List atlas structures and their identifiers.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:()=>STRUCTURES.map(s=>({id:s.id,name:name(s),region:s.region}))},{name:'select_lymph_structure',description:'Select a lymphatic structure and show its anatomy explanation.',inputSchema:{type:'object',properties:{id:{type:'string'}},required:['id'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{if(!input||typeof input.id!=='string'||!BY_ID[input.id])throw new Error('Unknown structure identifier');selectStructure(input.id);return {selected:input.id,name:name(BY_ID[input.id])};}}];
+ for(const tool of tools){try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}}
+}
