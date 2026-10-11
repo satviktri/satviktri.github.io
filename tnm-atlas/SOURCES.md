@@ -1,6 +1,6 @@
 # TNMAtlas — sources, provenance and implementation scope
 
-Reference review: **11 October 2026**. Educational release **1.1**.
+Reference review: **11 October 2026**. Educational release **1.2**.
 
 ## Staging systems
 
@@ -105,3 +105,19 @@ is findings → TNM and schematic → stage and rationale. The Use section retai
 the calculators, source links and reference matrices. All 30 lesson-to-calculator
 handoffs, section switching, preserved inputs and keyboard tab navigation were
 checked in a DOM test environment. Full browser layout QA remains unverified.
+
+
+## Visual learning update (release 1.2)
+
+The 32 paired comparisons in `learning-visuals.js` reuse the organ-specific
+sources above. Each pair changes one clinical grouping input only; all 64 outputs
+are checked against stated expected groups. Teaching labels add size, anatomical
+boundaries or distribution details that support those categories. These pairs
+illustrate alternate findings, not an inevitable sequence of cancer progression.
+Figures remain original schematic SVGs. Identical-size invasion examples keep
+the same drawn primary size; HCC's smaller-vessel example is drawn as a solitary
+lesion, distinct from the alternative multifocal T2 depiction. Expanded views
+support inspection on smaller screens. Main text and controls were enlarged;
+repeated navigation instructions and introductory promotional copy were removed.
+DOM interaction checks and offline SVG rendering are used for verification;
+full browser layout review is still unavailable.

@@ -8,7 +8,7 @@ hepatocellular carcinoma and differentiated thyroid carcinoma.
 
 ## Learn, then use
 
-The default entry opens **Learn**: Start here → Foundations → Organ lesson →
+The default entry opens **Learn**: Visual overview → Foundations → Organ lesson →
 Clinical notes → Practice cases. Each organ has three guided case walkthroughs
 that reveal the findings, TNM categories with a schematic, and stage reasoning
 in sequence. Practice cards keep category and stage answers closed initially.
@@ -21,6 +21,14 @@ case and reveal step are kept separately from those calculator inputs.
 Direct entry: https://satviktri.github.io/tnm-atlas/#learn or
 https://satviktri.github.io/tnm-atlas/#use. Learning does not need to be completed
 before accessing the tools. Learning progress is session-only.
+
+The visual overview has **32 one-factor comparisons** across the ten organs,
+with 64 illustrated scenarios, direct calculator handoffs and expandable SVGs.
+A category guide explains the local, nodal and distant descriptors for each organ.
+Foundations adds three concept diagrams and a four-step grouping workflow.
+Main explanatory text is 18 px on desktop and 17 px on mobile; controls are at
+least 16 px where users enter values. Comparison diagrams are schematic, and
+node/distant-site symbols do not encode exact counts.
 
 ## What it includes
 

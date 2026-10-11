@@ -1,6 +1,6 @@
 // Original vector teaching diagrams. Geometry is schematic, never patient data.
 const C={organ:'#254657',edge:'#6a96aa',tumor:'#f38b8f',node:'#e5c17a',distant:'#bba6f4',muted:'#8ca6b5'};
-const label=(x,y,text,size=12,color=C.muted)=>`<text x="${x}" y="${y}" font-size="${size}" fill="${color}">${text}</text>`;
+const label=(x,y,text,size=12,color=C.muted)=>`<text x="${x}" y="${y}" font-size="${size+2}" fill="${color}">${text}</text>`;
 const mass=(x,y,r=16)=>`<circle cx="${x}" cy="${y}" r="${r+5}" fill="${C.tumor}" opacity=".1"/><circle cx="${x}" cy="${y}" r="${r}" fill="${C.tumor}" fill-opacity=".78" stroke="#ffb5b8" stroke-width="1.5"/>`;
 const organPath=(d,extra='')=>`<path d="${d}" fill="${C.organ}" stroke="${C.edge}" stroke-width="2" ${extra}/>`;
 const node=(x,y,on=false)=>`<ellipse cx="${x}" cy="${y}" rx="8" ry="6" fill="${on?C.node:'#1a3040'}" stroke="${on?'#ffe2a2':'#55727e'}" stroke-width="1.5" transform="rotate(-25 ${x} ${y})"/>`;
@@ -10,7 +10,7 @@ export function icon(id){
 }
 export function visual(o,s){
  const t=s.t||'',n=s.n||'',m=s.m||'',num=Number(t[1])||0,positive=n&&!['N0','NX'].includes(n),meta=m.startsWith('M1');let main='',caption='',legend='Original anatomical schematic · not to scale';
- const T=t&&t!=='TX',r=num>=4?31:num===3?25:num===2?20:13;
+ const T=t&&t!=='TX',r=s.visualRadius??(num>=4?31:num===3?25:num===2?20:13);
  if(['colon','rectum','bladder'].includes(o.id)){
   const bladder=o.id==='bladder',layers=bladder?['Urothelium','Lamina propria','Muscularis propria','Perivesical tissue']:['Mucosa','Submucosa','Muscularis propria',o.id==='rectum'?'Mesorectal tissue':'Pericolic tissue'];
   const colors=['#58717a','#3c616d','#284c5f','#172f42'];
@@ -31,9 +31,9 @@ export function visual(o,s){
   caption='Primary shown in the patient’s right lung. Highlighted stations illustrate the selected N distribution, not every nodal station.';
  }else if(o.id==='kidney'){
   main=organPath('M155 79C69 59 64 261 146 280C208 298 225 231 177 211C144 197 152 164 184 148C217 128 205 88 155 79Z');
-  main+=`<path d="M70 66Q32 177 66 289M67 67Q212 25 239 162Q258 312 144 309" fill="none" stroke="#a2af9c" stroke-dasharray="5 5"/><path d="M181 179H288M288 70V291" stroke="#5b9ebd" stroke-width="15" fill="none"/><path d="M248 111H327" stroke="#80949e" stroke-dasharray="4 4"/>`+label(250,99,'Diaphragm',10)+label(267,316,'Vena cava',10)+label(48,335,'Gerota fascia',10);
+  main+=`<path d="M70 66Q32 177 66 289M67 67Q212 25 239 162Q258 312 144 309" fill="none" stroke="#a2af9c" stroke-dasharray="5 5"/><path d="M181 179H288M288 70V291" stroke="#5b9ebd" stroke-width="15" fill="none"/><path d="M248 111H327" stroke="#80949e" stroke-dasharray="4 4"/>`+label(250,99,'Diaphragm',10)+label(188,160,'Renal vein',10)+label(267,316,'Vena cava',10)+label(48,335,'Gerota fascia',10);
   if(T)main+=mass(124,149,r);
-  if(t.startsWith('T3'))main+=`<path d="M159 179H288${t==='T3a'?'':t==='T3b'?'V152':'V79'}" stroke="${C.tumor}" stroke-width="9" fill="none"/>`;
+  if(t.startsWith('T3'))main+=`<path d="M159 179H${t==='T3a'?'260':t==='T3b'?'288V152':'288V79'}" stroke="${C.tumor}" stroke-width="9" fill="none"/>`;
   if(t==='T4')main+=`<path d="M112 148Q70 149 49 131" stroke="${C.tumor}" stroke-width="21" fill="none"/>`;
   caption='Size determines T1/T2 only when confined. T3 venous extension is illustrated; fat or collecting-system invasion can also be T3a.';
  }else if(o.id==='breast'){
@@ -60,7 +60,8 @@ export function visual(o,s){
   main=organPath('M58 119Q155 68 296 119Q359 155 291 198L144 283Q75 317 54 260Q26 184 58 119Z');
   main+=`<path d="M176 114L174 179L271 153M174 179L129 241M174 179L92 161" stroke="#668fa4" stroke-width="8" fill="none"/>`+label(55,333,'Liver and major vascular branches',11);
   if(T)main+=mass(115,179,r);
-  if(t==='T2'||t==='T3')main+=mass(241,163,11);
+  if((t==='T2'&&s.visualFeature!=='small-vessel')||t==='T3')main+=mass(241,163,11);
+  if(s.visualFeature==='small-vessel')main+=`<path d="M120 181l17 13 9-9" stroke="${C.tumor}" stroke-width="6" fill="none"/>`;
   if(t==='T4')main+=`<path d="M124 181L174 179L212 169" stroke="${C.tumor}" stroke-width="12"/>`;
   caption='Multiplicity and vascular involvement are separate features. T2 can also be a solitary >2 cm tumor with vascular invasion.';
  }else if(o.id==='thyroid'){
@@ -78,7 +79,7 @@ export function visual(o,s){
  const mText=m==='unknown'?'Not established':m==='M0'?'No distant spread':meta?'Distant spread':'Choose M';
  let side=`<rect x="378" y="59" width="150" height="115" rx="12" fill="#10232f" stroke="#2a4553"/>`+label(394,81,'REGIONAL NODES',9)+label(394,107,nText,12,'#e5c17a');
  for(let i=0;i<4;i++)side+=node(402+i*29,142,positive&&!['N1c','N1mi'].includes(n)&&(i<(n.startsWith('N1')?1:n.startsWith('N2')?3:4)));
- if(n==='N1c')side+=`<path d="M478 101l6 6-6 6-6-6Z" fill="${C.tumor}"/>`;
+ if(n==='N1c')side+=`<path d="M512 136l6 6-6 6-6-6Z" fill="${C.tumor}"/>`;
  if(n==='N1mi')side+=`<circle cx="402" cy="142" r="2.5" fill="${C.node}"/>`;
  side+=`<rect x="378" y="198" width="150" height="123" rx="12" fill="#10232f" stroke="#2a4553"/>`+label(394,222,'DISTANT SITES',9)+label(394,247,mText,12,'#bba6f4');
  side+=`<circle cx="416" cy="281" r="17" fill="${meta?'#786399':'#1a3040'}" stroke="#796f97"/><circle cx="482" cy="281" r="17" fill="${meta?'#786399':'#1a3040'}" stroke="#796f97"/>`;
