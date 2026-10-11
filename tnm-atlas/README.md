@@ -6,6 +6,22 @@ A static multi-organ cancer-staging **learning tool**, with ten organ modules:
 lung, breast, colon, rectum, prostate, kidney, bladder, exocrine pancreas,
 hepatocellular carcinoma and differentiated thyroid carcinoma.
 
+## Learn, then use
+
+The default entry opens **Learn**: Start here → Foundations → Organ lesson →
+Clinical notes → Practice cases. Each organ has three guided case walkthroughs
+that reveal the findings, TNM categories with a schematic, and stage reasoning
+in sequence. Practice cards keep category and stage answers closed initially.
+
+**Use** contains the stage builder and quick reference. A guided case can be
+loaded into the calculator with one click; switching between Learn and Use
+preserves organ-specific calculator inputs for the current session. The lesson
+case and reveal step are kept separately from those calculator inputs.
+
+Direct entry: https://satviktri.github.io/tnm-atlas/#learn or
+https://satviktri.github.io/tnm-atlas/#use. Learning does not need to be completed
+before accessing the tools. Learning progress is session-only.
+
 ## What it includes
 
 - Edition-specific TNM category selection and transparent stage-group reasoning.

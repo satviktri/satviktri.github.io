@@ -1,6 +1,6 @@
 # TNMAtlas — sources, provenance and implementation scope
 
-Reference review: **11 October 2026**. Educational release **1.0**.
+Reference review: **11 October 2026**. Educational release **1.1**.
 
 ## Staging systems
 
@@ -93,3 +93,15 @@ thyroid age 55, any-T/any-N exceptions, pM0 prevention, post-therapy exclusion,
 invalid/incomplete inputs and all exposed category combinations. These are
 software checks, not independent clinical validation. Full browser layout QA was
 not available in the build environment.
+
+
+## Learn / Use update (release 1.1)
+
+The new Learn entry, foundations route and organ walkthroughs use the same
+cited definitions, clinical context, fictional cases and stage engine as the
+original release. Guided case explanations are generated from that shared data,
+so they do not introduce a second staging algorithm. The initial reveal order
+is findings → TNM and schematic → stage and rationale. The Use section retains
+the calculators, source links and reference matrices. All 30 lesson-to-calculator
+handoffs, section switching, preserved inputs and keyboard tab navigation were
+checked in a DOM test environment. Full browser layout QA remains unverified.
