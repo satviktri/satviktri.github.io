@@ -39,6 +39,8 @@ social_links:
 
 # Analytics
 google_analytics: G-V08WLNR7E2
+# Add the Search Console HTML-tag verification token here when available.
+google_site_verification: ""
 
 # Build settings
 markdown: kramdown

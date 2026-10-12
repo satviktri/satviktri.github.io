@@ -18,6 +18,7 @@
     {% if site.canonical %}
     <link rel="canonical" href="{{ site.canonical }}">
     {% endif %}
+    {% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">{% endif %}
     <link rel="icon" href="{{ site.favicon }}" type="image/png">
     {% if site.favicon_dark %}
     <link rel="icon" media="(prefers-color-scheme: dark)" href="{{ site.favicon_dark }}" type="image/png">
@@ -115,7 +116,7 @@
     <footer class="site-footer">
       <div class="container">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-        <p>Content updated {{ site.content_updated }}.</p>
+        <p>Content updated {{ site.content_updated }}. <a href="{{ '/atlases/privacy/' | relative_url }}">Privacy & analytics</a></p>
       </div>
     </footer>
     <script>
@@ -165,14 +166,6 @@
         }
       })();
     </script>
-    {% if site.google_analytics %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ site.google_analytics }}');
-    </script>
-    {% endif %}
+    {% include analytics.html %}
   </body>
 </html>

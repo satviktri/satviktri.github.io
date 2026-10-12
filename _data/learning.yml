@@ -1,0 +1,15 @@
+- title: Blood flow through the heart
+  topic: Cardiovascular anatomy
+  url: /cardio-atlas/blood-flow-through-heart/
+  description: Follow the chambers, valves and two connected circulations.
+  atlas: cardio-atlas
+- title: Thoracic duct anatomy and drainage
+  topic: Lymphatic anatomy
+  url: /lymph-atlas/thoracic-duct/
+  description: Trace the main lymphatic return route and its right-sided exception.
+  atlas: lymph-atlas
+- title: Lung cancer TNM staging
+  topic: AJCC Version 9 · NSCLC
+  url: /tnm-atlas/lung-cancer-staging/
+  description: Compare nodal stations and work through three staging examples.
+  atlas: tnm-atlas

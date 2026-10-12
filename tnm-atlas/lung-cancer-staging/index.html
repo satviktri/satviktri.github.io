@@ -1,0 +1,21 @@
+---
+layout: learning
+title: "Lung cancer TNM staging: AJCC Version 9 examples"
+description: "Learn how primary tumour extent, regional nodal stations and distant spread combine in NSCLC staging, then practise with the TNMAtlas calculator."
+permalink: /tnm-atlas/lung-cancer-staging/
+subject: ONCOLOGY · NON-SMALL CELL LUNG CARCINOMA
+atlas_url: /tnm-atlas/#use
+atlas_name: TNMAtlas
+atlas_cta: Open the lung staging calculator
+provenance: /tnm-atlas/SOURCES.md
+updated: "2026-10-11"
+sitemap: true
+---
+<section><h2>Start with the correct staging system</h2><p>This guide uses <strong>AJCC Version 9 for lung</strong>, introduced in 2025 and listed in AJCC’s 2026 current systems document. AJCC updates are disease-specific; this label does not mean that every organ uses the same edition. <a href="#ref-edition">[1]</a></p><p>Use this guide for learning initial NSCLC staging. The calculator does not provide post-neoadjuvant or recurrent stage groups, treatment recommendations or independent clinical validation.</p></section>
+<section><h2>Build T, N and M separately</h2><div class="step-grid"><article><span class="step-number">T</span><h3>Primary extent</h3><p>Consider size and invasion. A higher local-extension feature can override a size-only category.</p></article><article><span class="step-number">N</span><h3>Regional stations</h3><p>N2a involves one ipsilateral mediastinal/subcarinal station; N2b involves multiple such stations. Count stations, not individual nodes.</p></article><article><span class="step-number">M</span><h3>Distant distribution</h3><p>M1c1 means multiple extrathoracic metastases in one organ system; M1c2 involves multiple organ systems. <a href="#ref-lung">[2]</a></p></article></div></section>
+<section><h2>One changed finding, a different group</h2><p>Hold the primary tumour and distant assessment constant. Compare one involved mediastinal station with two.</p>
+{% include lung-staging-comparison.html %}
+<p>The drawings highlight the changed nodal distribution. Station boundaries are symbolic; they are not a procedural lymph-node map.</p></section>
+<section><h2>Three worked examples</h2><div class="case-grid"><article><p class="case-label">Example 1 · Initial clinical</p><h3>One station</h3><p>A 2.5 cm primary with no higher T feature, one involved ipsilateral mediastinal station and no distant metastasis.</p><p class="tnm">cT1c cN2a cM0</p><span class="stage-answer">Stage IIB</span></article><article><p class="case-label">Example 2 · Initial clinical</p><h3>Two stations</h3><p>Keep all other findings unchanged; establish involvement of a second ipsilateral mediastinal station.</p><p class="tnm">cT1c cN2b cM0</p><span class="stage-answer">Stage IIIA</span></article><article><p class="case-label">Example 3 · Initial clinical</p><h3>Distant bone lesions</h3><p>A 4.4 cm primary, ipsilateral hilar involvement and several bone metastases, without another distant organ system.</p><p class="tnm">cT2b cN1 cM1c1</p><span class="stage-answer">Stage IVB</span></article></div><p class="references">Fictional examples; category definitions and groups checked against NCI PDQ, Tables 1–4. <a href="#ref-lung">[2]</a></p></section>
+<section><h2>How to use the calculator</h2><ol><li>Open TNMAtlas and keep <strong>Lung</strong> selected.</li><li>Choose the appropriate classification and initial assessment context.</li><li>Enter the established T, N and M categories. Leave uncertain findings unresolved rather than assuming they are negative.</li><li>Compare the result and explanation with the cited source. Record the edition and evidence behind the categories.</li></ol><p>Use the atlas’s fictional examples to practise. Do not enter identifiable patient information into learning notes.</p><a class="guide-cta" href="/tnm-atlas/#use">Practise in TNMAtlas ↗</a></section>
+<section class="references"><h2>References</h2><ol><li id="ref-edition"><a href="https://www.facs.org/media/c5ik5tkr/ajcc-current-staging-system-2026.pdf">AJCC: Current staging systems for 2026</a> — disease-specific edition applicability.</li><li id="ref-lung"><a href="https://www.cancer.gov/types/lung/hp/non-small-cell-lung-treatment-pdq">NCI PDQ: Non-small cell lung cancer treatment</a> — stage information, Tables 1–4. Full descriptors and exceptions remain in the reference.</li></ol></section>

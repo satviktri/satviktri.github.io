@@ -1,0 +1,31 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- capture paths -%}
+{%- for item in site.pages -%}{%- if item.sitemap == true -%}
+  {%- assign first_folder = item.url | split: '/' | slice: 1, 1 | first -%}
+  {%- assign registered = site.data.atlases | where: 'id', first_folder | first -%}
+  {%- unless registered.published == false -%}{{ item.url }}|{%- endunless -%}
+{%- endif -%}{%- endfor -%}
+{%- assign candidates = site.static_files | concat: site.pages -%}
+{%- for file in candidates -%}
+  {%- assign normalized = file.path -%}
+  {%- assign first_character = normalized | slice: 0, 1 -%}
+  {%- if first_character == '/' -%}{%- assign normalized = normalized | remove_first: '/' -%}{%- endif -%}
+  {%- assign parts = normalized | split: '/' -%}
+  {%- assign suffix = parts[0] | slice: -6, 6 -%}
+  {%- if parts.size == 2 and parts[1] == 'index.html' and suffix == '-atlas' -%}
+    {%- assign registered = site.data.atlases | where: 'id', parts[0] | first -%}
+    {%- unless registered.published == false or file.sitemap == false -%}/{{ parts[0] }}/|{%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign urls = paths | split: '|' | uniq | sort -%}
+{%- for path in urls -%}{%- unless path == '' -%}
+<url><loc>{{ path | absolute_url | xml_escape }}</loc></url>
+{%- endunless -%}{%- endfor %}
+</urlset>

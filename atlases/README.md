@@ -35,3 +35,12 @@ Check catalog entries against local directories and source files. Test search,
 filters, empty-state reset, no-JavaScript links, and fallback discovery using a
 synthetic future folder. GitHub Pages' Jekyll build is the definitive template
 check. Full browser layout review is unavailable in the current environment.
+
+## Learning pages and measurement
+
+The first three topic guides are registered in `_data/learning.yml`. They use the
+shared `learning` layout and remain readable without JavaScript. The sitemap
+includes these guides and automatically discovers future published atlas roots.
+Shared metadata and Analytics configuration are documented in
+[SEO-ANALYTICS.md](SEO-ANALYTICS.md). Google Search Console verification and Google
+Analytics dashboard receipt are separate account-side checks.

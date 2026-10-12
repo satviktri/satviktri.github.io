@@ -1,0 +1,4 @@
+<section class="learning-links" aria-labelledby="learning-heading">
+  <div class="learning-heading"><p class="eyebrow">LEARN THE FOUNDATIONS</p><h2 id="learning-heading">Visual guides, step by step.</h2></div>
+  <div class="learning-grid">{% for guide in site.data.learning %}<article><p class="atlas-kind">{{ guide.topic | escape }}</p><h3><a href="{{ guide.url | relative_url }}">{{ guide.title | escape }}</a></h3><p>{{ guide.description | escape }}</p><a class="guide-link" href="{{ guide.url | relative_url }}">Read the guide →</a></article>{% endfor %}</div>
+</section>

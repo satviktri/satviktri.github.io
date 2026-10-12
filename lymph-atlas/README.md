@@ -13,7 +13,7 @@ Serve this directory with any static server, e.g. `python3 -m http.server 8000`,
 - Layer controls, isolation, named views, animation pause, and keyboard rotation/zoom.
 - Six drainage routes, four clinical connections, eight explained study questions.
 - Responsive layout; keyboard-accessible structure browser; reduced-motion preference honored.
-- All runtime JavaScript is vendored. No API keys, analytics, external font requests, account system, or backend.
+- Atlas runtime JavaScript is vendored. No API keys, external fonts, accounts or backend are required. The GitHub Pages edition uses the shared site Google Analytics tag; see `/atlases/privacy/`.
 - A CPU canvas compatibility renderer preserves 3D rotation and selection when WebGL2 is unavailable.
 
 ## Model limits
@@ -33,7 +33,7 @@ OrbitControls has one local adaptation: its `three` import uses the vendored rel
 
 ## GitHub Pages
 
-Deployed as `/lymph-atlas/` within the existing personal GitHub Pages repository. All application asset paths are relative. The site's existing Jekyll publishing process can copy this directory without a new build tool or workflow. To move to a standalone repository, copy this folder's contents to its root, enable Pages from that branch/root, and update the footer source link.
+Deployed as `/lymph-atlas/` within the existing personal GitHub Pages repository. All application asset paths are relative. The existing Jekyll publishing process renders the entry page to include shared metadata and analytics, without a new build tool or workflow. To move to a standalone repository, copy this folder's contents to its root, enable Pages from that branch/root, and update the footer source link.
 
 ## Validation
 

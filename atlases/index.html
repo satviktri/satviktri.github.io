@@ -1,6 +1,9 @@
 ---
 layout: null
 permalink: /atlases/
+sitemap: true
+title: "Free interactive medical atlases and learning guides"
+description: "Explore lymphatic anatomy, heart and vascular circulation, and TNM cancer staging with free visual guides and interactive learning tools."
 ---
 <!doctype html>
 <html lang="en">
@@ -8,13 +11,7 @@ permalink: /atlases/
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101b26">
-  <title>Medical Atlases · Satvik Tripathi</title>
-  <meta name="description" content="Explore Satvik Tripathi’s free interactive medical atlases: lymphatic anatomy, cardiovascular circulation and multi-organ TNM cancer staging.">
-  <meta property="og:title" content="Medical Atlases · Satvik Tripathi">
-  <meta property="og:description" content="Interactive anatomy, circulation and cancer staging. Explore the collection.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ '/atlases/' | absolute_url }}">
-  <link rel="canonical" href="{{ '/atlases/' | absolute_url }}">
+  {% include seo.html %}
   <link rel="stylesheet" href="{{ '/atlases/style.css' | relative_url }}">
 </head>
 <body>
@@ -50,9 +47,11 @@ permalink: /atlases/
     </div>
     <div id="empty-state" class="empty-state" hidden><h2>No matching atlases</h2><p>Try another subject or clear the filters.</p><button id="clear-filters">Show all atlases</button></div>
   </section>
+  {% include learning-links.html %}
   <section class="collection-note" aria-label="About this collection"><div><h2>A growing learning collection.</h2><p>Created by <a href="{{ '/' | relative_url }}">Satvik Tripathi</a>. New atlases will appear here as the collection expands.</p></div><p class="scope-note">Educational resources, not clinical decision tools. Each atlas explains its sources, staging editions where relevant, and limitations.</p></section>
 </main>
-<footer><span>Medical Atlases · Satvik Tripathi</span><nav aria-label="Collection links"><a href="{{ '/' | relative_url }}">Personal website</a><a href="https://github.com/satviktri/satviktri.github.io/tree/main/atlases">Project on GitHub ↗</a></nav></footer>
+<footer><span>Medical Atlases · Satvik Tripathi</span><nav aria-label="Collection links"><a href="{{ '/' | relative_url }}">Personal website</a><a href="{{ '/atlases/privacy/' | relative_url }}">Privacy & analytics</a><a href="https://github.com/satviktri/satviktri.github.io/tree/main/atlases">Project on GitHub ↗</a></nav></footer>
 <script src="{{ '/atlases/app.js' | relative_url }}" defer></script>
+{% include analytics.html %}
 </body>
 </html>
