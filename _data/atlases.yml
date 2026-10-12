@@ -1,0 +1,41 @@
+# Public atlas catalog. See atlases/README.md before adding entries.
+- id: lymph-atlas
+  name: LymphAtlas
+  topic: Lymphatic system
+  category: anatomy
+  description: Explore major lymph node groups, lymphoid organs and the routes that return lymph to the circulation.
+  features:
+    - Rotatable 3D schematic
+    - Six drainage pathways
+    - Clinical connections and study questions
+  tags: [lymph, lymphatic, nodes, drainage, anatomy, immune, spleen, thoracic duct]
+  sources: /lymph-atlas/README.md
+  published: true
+
+- id: cardio-atlas
+  name: CardioAtlas
+  topic: Cardiovascular system
+  category: anatomy
+  description: Trace blood through the major vessels and explore the chambers, valves and circulation of the heart.
+  features:
+    - Directional blood-flow animation
+    - Interactive heart cutaway
+    - Circulation routes and clinical notes
+  tags: [heart, cardiovascular, blood, vessels, arteries, veins, circulation, anatomy]
+  sources: /cardio-atlas/ATTRIBUTION.md
+  published: true
+
+- id: tnm-atlas
+  name: TNMAtlas
+  topic: Cancer staging
+  category: oncology
+  description: Learn organ-specific TNM staging, compare visual cases and apply established findings in a staging calculator.
+  features:
+    - Ten organ modules
+    - Guided lessons and visual comparisons
+    - Calculators and worked examples
+  tags: [cancer, oncology, tumor, tnm, staging, ajcc, lung, breast, prostate, colon, thyroid]
+  sources: /tnm-atlas/SOURCES.md
+  secondary_url: /tnm-atlas/#use
+  secondary_label: Open calculator
+  published: true

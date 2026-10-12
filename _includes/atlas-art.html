@@ -1,0 +1,24 @@
+<svg viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg" fill="none">
+{% case include.id %}
+{% when 'lymph-atlas' %}
+<path d="M210 39v143m0-108-68 45m68-45 68 45m-68 23-56 52m56-52 56 52" stroke="#8bdbc1" stroke-width="3"/>
+<path d="M143 120l-24-28m159 28 24-28M155 184l-27 17m138-17 27 17" stroke="#8bdbc1" stroke-opacity=".5" stroke-width="2"/>
+<g fill="#90e1c7" stroke="#c2f3e6" stroke-width="2"><circle cx="210" cy="41" r="12"/><circle cx="210" cy="77" r="9"/><circle cx="143" cy="119" r="13"/><circle cx="278" cy="119" r="13"/><circle cx="210" cy="142" r="12"/><circle cx="155" cy="185" r="10"/><circle cx="266" cy="185" r="10"/></g>
+<g stroke="#8bdbc1" opacity=".18"><circle cx="210" cy="115" r="89"/><circle cx="210" cy="115" r="108"/></g>
+{% when 'cardio-atlas' %}
+<path d="M211 187C188 162 132 130 129 91c-3-43 52-53 80-15 22-39 78-35 82 8 4 39-49 83-80 103Z" fill="#683b50" stroke="#f29ca5" stroke-width="2.5"/>
+<path d="M188 74v56l24 25 29-28V72" stroke="#ed8294" stroke-width="6" stroke-linecap="round"/>
+<path d="M165 53V26h40v33M251 52V25h-27v31" stroke="#7fa5d6" stroke-width="8" stroke-linejoin="round"/>
+<path d="M79 125h65m-13-9 13 9-13 9M338 94h-53m13-9-13 9 13 9" stroke="#b9dce9" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M91 156h50l13-17 12 33 14-22h56" stroke="#f5b2b8" stroke-opacity=".35" stroke-width="2"/>
+{% when 'tnm-atlas' %}
+<rect x="73" y="53" width="78" height="88" rx="15" fill="#553544" stroke="#e7a1ae"/>
+<rect x="171" y="53" width="78" height="88" rx="15" fill="#4c4534" stroke="#e6cd8d"/>
+<rect x="269" y="53" width="78" height="88" rx="15" fill="#38344f" stroke="#c6b2ee"/>
+<g font-family="system-ui,sans-serif" font-size="39" font-weight="400" text-anchor="middle"><text x="112" y="111" fill="#ffc2ca">T</text><text x="210" y="111" fill="#f2dea8">N</text><text x="308" y="111" fill="#ded0f9">M</text></g>
+<path d="M112 153v18h196v-18M210 171v23" stroke="#a69bbc" stroke-width="2"/><circle cx="210" cy="200" r="6" fill="#c6b2ee"/>
+{% else %}
+<path d="M117 69q45-19 92 5v105q-49-20-92-5V69Zm186 0q-46-19-94 5v105q48-20 94-5V69Z" stroke="#a6c9db" stroke-width="3" fill="#203a4c"/>
+<path d="M138 97h49m-49 23h49m-49 23h34m51-46h47m-47 23h47m-47 23h32" stroke="#93bbc9" stroke-width="2"/>
+{% endcase %}
+</svg>

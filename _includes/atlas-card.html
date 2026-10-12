@@ -1,0 +1,12 @@
+{%- assign entry = include.entry -%}
+<article class="atlas-card" data-atlas="{{ entry.id | escape }}" data-category="{{ entry.category | default: 'other' | escape }}" data-search="{{ entry.name | append: ' ' | append: entry.topic | append: ' ' | append: entry.description | escape }} {{ entry.tags | join: ' ' | escape }}">
+  <div class="atlas-art art-{{ entry.id | escape }}" aria-hidden="true">{% include atlas-art.html id=entry.id %}<span>{{ entry.topic | escape }}</span></div>
+  <div class="atlas-card-body">
+    <p class="atlas-kind">{% if entry.category == 'oncology' %}Oncology{% elsif entry.category == 'anatomy' %}Anatomy & physiology{% else %}Learning resource{% endif %}</p>
+    <h2><a href="{{ entry.id | prepend: '/' | append: '/' | relative_url }}">{{ entry.name | escape }}</a></h2>
+    <p class="atlas-description">{{ entry.description | escape }}</p>
+    <ul class="features">{% for feature in entry.features %}<li>{{ feature | escape }}</li>{% endfor %}</ul>
+    <div class="card-actions"><a class="open-atlas" href="{{ entry.id | prepend: '/' | append: '/' | relative_url }}">Explore atlas <span aria-hidden="true">↗</span></a>{% if entry.secondary_url %}<a class="secondary-link" href="{{ entry.secondary_url | relative_url }}">{{ entry.secondary_label | escape }}</a>{% endif %}</div>
+    {% if entry.sources %}<a class="source-link" href="{{ entry.sources | relative_url }}">About & references ↗</a>{% endif %}
+  </div>
+</article>

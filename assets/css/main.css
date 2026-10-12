@@ -745,3 +745,6 @@ button:focus-visible {
   .section { padding: 2.25rem 1rem; }
   .site-nav-wrapper { z-index: 60; }
 }
+
+/* Shared medical atlas collection */
+.atlas-resource-panel{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;border:1px solid var(--border);border-radius:var(--radius-lg);background:#fff;padding:30px}.atlas-resource-panel p{font-size:18px;line-height:1.7}.atlas-resource-panel .atlas-resource-scope{font-size:15px;color:var(--text-secondary)}.atlas-resource-links{display:grid;gap:12px;align-content:start}.atlas-resource-links a{display:flex;flex-direction:column;gap:3px;border:1px solid var(--border);border-radius:10px;padding:15px 18px;text-decoration:none;background:var(--background-alt)}.atlas-resource-links a:hover{border-color:var(--accent)}.atlas-resource-links strong{font-size:18px}.atlas-resource-links span{font-size:15px;color:var(--text-secondary)}@media(max-width:760px){.atlas-resource-panel{grid-template-columns:1fr;padding:22px;gap:24px}.atlas-resource-panel p{font-size:17px}}

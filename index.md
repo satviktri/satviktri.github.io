@@ -83,6 +83,14 @@ layout: homepage
   </div>
 </section>
 
+<section id="atlases" class="section">
+  <div class="section-header"><p class="section-kicker">Open learning resources</p><h2 class="section-title">Interactive medical atlases</h2></div>
+  <div class="atlas-resource-panel">
+    <div><p>A growing collection of free tools for exploring anatomy, circulation and cancer staging, with visual lessons, clinical context and linked references.</p><p class="atlas-resource-scope">Educational resources; each atlas explains its sources and limitations.</p><a class="btn btn--primary" href="{{ '/atlases/' | relative_url }}">Explore the atlas collection ↗</a></div>
+    <nav class="atlas-resource-links" aria-label="Individual medical atlases">{% for atlas in site.data.atlases %}{% unless atlas.published == false %}<a href="{{ atlas.id | prepend: '/' | append: '/' | relative_url }}"><strong>{{ atlas.name | escape }}</strong><span>{{ atlas.topic | escape }} ↗</span></a>{% endunless %}{% endfor %}</nav>
+  </div>
+</section>
+
 {% include publications.md %}
 
 <section id="background" class="section">
