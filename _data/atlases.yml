@@ -39,3 +39,18 @@
   secondary_url: /tnm-atlas/#use
   secondary_label: Open calculator
   published: true
+
+- id: imaging-atlas
+  name: ImagingAtlas
+  topic: Medical imaging
+  category: other
+  description: Learn how X-ray, CT, MRI and ultrasound form images, compare real scans and explore the effects of display settings and scan geometry.
+  features:
+    - Four interactive imaging models
+    - Seven licensed scans across three anatomy comparisons
+    - Twelve worked teaching cases and four learning guides
+  tags: [imaging, radiology, xray, CT, MRI, ultrasound, windowing, physics]
+  sources: /imaging-atlas/SOURCES.md
+  secondary_url: /imaging-atlas/#use
+  secondary_label: Open imaging lab
+  published: true

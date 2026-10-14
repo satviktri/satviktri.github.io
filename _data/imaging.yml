@@ -1,0 +1,110 @@
+- id: xray
+  name: X-ray
+  subtitle: A projection through the body
+  signal: X-ray transmission
+  radiation: Ionizing radiation
+  geometry: 2D projection
+  accent: amber
+  summary: A radiograph combines the structures along each beam path into one image. Start with projection and positioning before interpreting an apparent difference.
+  steps:
+    - Emit X-rays toward the body.
+    - Tissues attenuate the beam differently.
+    - A detector records the transmitted pattern.
+  observations:
+    - Air usually appears dark; bone and metal usually appear bright.
+    - Overlapping structures can hide or mimic a finding.
+    - A second projection provides a different view of the same anatomy.
+  clinical: Chest and skeletal radiographs are common applications. Fluoroscopy uses a sequence of X-ray images; mammography is a specialised X-ray examination.
+  limitation: A projection does not directly resolve depth. Image appearance also depends on positioning, exposure and processing.
+  safety: Use an appropriate examination and technique for the clinical question. Tell the imaging team about pregnancy or possible pregnancy.
+  contrast: Routine radiographs often need no contrast. Some specialised X-ray examinations use contrast agents.
+  task: Follow one beam through two overlapping objects. Which information about their depth has been lost?
+  sources:
+    - title: NIH NIBIB · Medical X-rays
+      url: https://www.nibib.nih.gov/science-education/science-topics/medical-x-rays
+    - title: ACR/RSNA · Chest X-ray
+      url: https://www.radiologyinfo.org/en/info/chestrad
+- id: ct
+  name: CT
+  subtitle: Many projections become a volume
+  signal: X-ray attenuation
+  radiation: Ionizing radiation
+  geometry: Cross-sectional volume
+  accent: blue
+  summary: CT reconstructs a volume from many X-ray measurements. A slice separates anatomy by depth; a display window chooses which attenuation values receive visible contrast.
+  steps:
+    - Acquire projections around the body.
+    - Reconstruct attenuation values into slices.
+    - Select planes and display windows.
+  observations:
+    - Window level sets the centre of the displayed range.
+    - Window width sets how broad that range is.
+    - Changing a display window does not require a new exposure.
+  clinical: CT can depict lung, bone, soft tissue and vessels. The scan protocol and contrast timing depend on the question being asked.
+  limitation: Motion, metal and partial-volume effects can obscure detail. A JPEG of one slice does not contain the complete examination or its original HU data.
+  safety: CT uses ionizing radiation. When iodinated contrast is considered, the team reviews relevant reaction history, kidney function and the clinical context.
+  contrast: Unenhanced CT and contrast-enhanced CT answer different questions. Contrast timing is part of the acquisition, not a display setting.
+  task: Keep a phantom voxel fixed while changing the window. Explain why its stored value stays the same while its shade changes.
+  sources:
+    - title: NIH NIBIB · Computed tomography
+      url: https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct
+    - title: ACR/RSNA · Body CT
+      url: https://www.radiologyinfo.org/en/info/bodyct
+    - title: DICOM · Window centre and width
+      url: https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.11.2.html
+- id: mri
+  name: MRI
+  subtitle: Tissue signal depends on the sequence
+  signal: Magnetic field and radiofrequency
+  radiation: No ionizing radiation
+  geometry: Sequence-dependent images
+  accent: lilac
+  summary: MRI uses a magnetic field, radiofrequency excitation and spatial encoding to form images. Read the sequence label first; bright signal has different meanings on different acquisitions.
+  steps:
+    - Establish magnetisation in the main field.
+    - Apply radiofrequency pulses and gradients.
+    - Receive and reconstruct the tissue signal.
+  observations:
+    - Compare T1 and T2 weighting rather than treating MRI as one appearance.
+    - FLAIR suppresses the signal from free fluid such as CSF.
+    - Interpret diffusion-weighted images alongside the ADC map and other sequences.
+  clinical: A multiparametric examination combines complementary sequences. It may include pre- and post-contrast images, diffusion or other specialised acquisitions.
+  limitation: Motion and susceptibility can degrade images. Sequence names, timing, field strength and fat suppression affect appearance.
+  safety: Device safety depends on the exact implant and scanning conditions. MR Conditional does not mean safe in every scanner or protocol; formal screening remains necessary.
+  contrast: Many MRI examinations can be performed without contrast. When indicated, gadolinium-based agents require their own safety assessment.
+  task: Compare fluid signal across T1, T2 and FLAIR. Then explain why DWI brightness alone is not proof of restricted diffusion.
+  sources:
+    - title: NIH NIBIB · Magnetic resonance imaging
+      url: https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri
+    - title: ACR/RSNA · Brain MRI
+      url: https://www.radiologyinfo.org/en/info/headmr
+    - title: FDA · MRI safety
+      url: https://www.fda.gov/radiation-emitting-products/mri-magnetic-resonance-imaging/benefits-and-risks
+    - title: University of Iowa · MRI signal patterns
+      url: https://neuroimaging.uiowa.edu/sites/neuroimaging.uiowa.edu/files/2022-05/05_JCOCHRAN_anatomical-neuroimaging.pdf
+- id: ultrasound
+  name: Ultrasound
+  subtitle: Echoes create a live section
+  signal: High-frequency sound
+  radiation: No ionizing radiation
+  geometry: Real-time, probe-dependent plane
+  accent: mint
+  summary: A transducer sends sound pulses and receives echoes. The displayed section depends on where the probe is placed and how it is oriented.
+  steps:
+    - Transmit a sound pulse into tissue.
+    - Receive echoes from tissue interfaces.
+    - Map echo timing and strength into an image.
+  observations:
+    - Near-field structures appear closer to the top of a conventional image.
+    - Brightness describes returning echoes, not CT attenuation.
+    - Doppler evaluates motion; colour must be read against the displayed scale.
+  clinical: Ultrasound supports real-time assessment, Doppler evaluation and image-guided procedures. Transducer choice and the acoustic window shape what can be seen.
+  limitation: Gas and bone limit many acoustic windows. Operator technique, angle, gain and depth influence the examination.
+  safety: Diagnostic ultrasound does not use ionizing radiation. Appropriate output and examination duration still matter.
+  contrast: Many studies use no injected agent. Contrast-enhanced ultrasound is a separate technique using ultrasound contrast agents.
+  task: Rotate the illustrated probe from a long-axis to a short-axis view. Predict how the same vessel changes shape on the screen.
+  sources:
+    - title: NIH NIBIB · Ultrasound
+      url: https://www.nibib.nih.gov/science-education/science-topics/ultrasound
+    - title: ACR/RSNA · General ultrasound
+      url: https://www.radiologyinfo.org/en/info/genus

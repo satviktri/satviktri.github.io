@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {windowGray,phantomHU,magnification} from '../physics.js';
+test('DICOM LINEAR boundaries and midpoint',()=>{assert.equal(windowGray(-160,40,400),0);assert.equal(windowGray(239,40,400),255);assert.equal(windowGray(39.5,40,400),128);assert.equal(windowGray(-1000,40,400),0);assert.equal(windowGray(1000,40,400),255);});
+test('Width one is a threshold, including equality',()=>{assert.equal(windowGray(39.5,40,1),0);assert.equal(windowGray(39.6,40,1),255);assert.throws(()=>windowGray(0,0,0),RangeError);assert.throws(()=>windowGray(NaN,0,1),RangeError);});
+test('Changing display preserves phantom values',()=>{const value=phantomHU(.28,.65,10);assert.equal(value,-100);assert.notEqual(windowGray(value,40,400),windowGray(value,-600,1500));assert.equal(phantomHU(.28,.65,10),value);});
+test('Magnification is unity on detector and increases with separation',()=>{assert.equal(magnification(180,0),1);assert.ok(magnification(180,40)>magnification(180,10));assert.throws(()=>magnification(180,180),RangeError);});

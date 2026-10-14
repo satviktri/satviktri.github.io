@@ -1,0 +1,134 @@
+[
+  {
+    "id": "xray-attenuation",
+    "modality": "xray",
+    "title": "Why are the ribs bright?",
+    "prompt": "On a fictional chest teaching image, ribs look lighter than the air-filled lungs. What produces that difference?",
+    "answer": "Different X-ray attenuation along the beam path.",
+    "rationale": "Bone attenuates more of the beam than air-filled lung. On the usual radiographic display this produces lighter bone and darker lung. These are projected shadows, not a direct photograph.",
+    "sourceURLs": [
+      "https://www.nibib.nih.gov/science-education/science-topics/medical-x-rays"
+    ]
+  },
+  {
+    "id": "xray-projection",
+    "modality": "xray",
+    "title": "A larger-looking heart",
+    "prompt": "A fictional portable AP chest image shows a larger cardiac silhouette than an earlier PA image. Does the apparent change alone prove true heart enlargement?",
+    "answer": "No. Check projection and acquisition differences first.",
+    "rationale": "AP geometry can magnify the cardiac silhouette. Comparing apparent size across AP and PA images without considering technique can mislead.",
+    "sourceURLs": [
+      "https://pubmed.ncbi.nlm.nih.gov/2966252/"
+    ]
+  },
+  {
+    "id": "xray-soft-tissue",
+    "modality": "xray",
+    "title": "A normal bone image, persistent symptoms",
+    "prompt": "In a fictional wrist lesson, a radiograph shows no visible fracture. Does this exclude a tendon injury?",
+    "answer": "No. Radiographs have limited ability to show many soft-tissue injuries.",
+    "rationale": "A radiograph answers some questions well but cannot establish that every tissue is normal. Further evaluation depends on the clinical examination and the question being asked.",
+    "sourceURLs": [
+      "https://www.radiologyinfo.org/en/info/bonerad"
+    ]
+  },
+  {
+    "id": "ct-window",
+    "modality": "ct",
+    "title": "One slice, two appearances",
+    "prompt": "In the windowing lab, the same synthetic CT values look different when you change from a broad window to a narrow one. Has the tissue changed?",
+    "answer": "No. The mapping from values to display shades changed.",
+    "rationale": "A narrow window spreads a smaller input range across the available grayscale. Values outside that range are clipped at the display extremes. The original values remain unchanged.",
+    "sourceURLs": [
+      "https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.11.2.html"
+    ]
+  },
+  {
+    "id": "ct-slices",
+    "modality": "ct",
+    "title": "Separating overlapping structures",
+    "prompt": "Two structures overlap on a fictional frontal chest radiograph. What is the conceptual advantage of examining CT slices?",
+    "answer": "Cross-sectional views separate anatomy by location through the body.",
+    "rationale": "CT reconstructs measurements from many angles. Successive slices and reformatted planes help localize structures that overlap in a projection image.",
+    "sourceURLs": [
+      "https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct"
+    ]
+  },
+  {
+    "id": "ct-contrast",
+    "modality": "ct",
+    "title": "Not all contrast is the same",
+    "prompt": "A learner says that contrast for CT and contrast for MRI are interchangeable because both make anatomy easier to see. What is missing?",
+    "answer": "The agent and imaging mechanism are different.",
+    "rationale": "Iodinated agents commonly enhance CT by altering X-ray attenuation. Gadolinium-based agents commonly enhance MRI by changing magnetic properties. Screening is specific to the agent, patient and examination.",
+    "sourceURLs": [
+      "https://www.radiologyinfo.org/en/info/safety-contrast"
+    ]
+  },
+  {
+    "id": "mri-diffusion",
+    "modality": "mri",
+    "title": "Bright on DWI",
+    "prompt": "A fictional lesion is bright on a diffusion-weighted image. Can you call it restricted diffusion from that image alone?",
+    "answer": "No. Review the ADC map and the other sequences.",
+    "rationale": "DWI brightness can reflect T2 shine-through. Corresponding reduced ADC supports restricted diffusion, but the pattern still needs anatomical and clinical context; it is not a diagnosis by itself.",
+    "sourceURLs": [
+      "https://pubs.rsna.org/doi/10.1148/rg.296095521"
+    ]
+  },
+  {
+    "id": "mri-implant",
+    "modality": "mri",
+    "title": "The implant card",
+    "prompt": "A fictional patient brings an implant card marked MR Conditional. Does that mean scanning is allowed with any MRI setup?",
+    "answer": "No. The exact device conditions must be checked and satisfied.",
+    "rationale": "MR Conditional describes safety under specified conditions. Device identity, manufacturer labeling and the site's MRI safety process determine whether the proposed examination meets those conditions.",
+    "sourceURLs": [
+      "https://www.fda.gov/radiation-emitting-products/mri-magnetic-resonance-imaging/information-professionals"
+    ]
+  },
+  {
+    "id": "mri-motion",
+    "modality": "mri",
+    "title": "Blur across a sequence",
+    "prompt": "A fictional MRI sequence has blurred tissue boundaries after movement. Should every indistinct edge be read as abnormal anatomy?",
+    "answer": "No. Consider motion-related image degradation.",
+    "rationale": "MRI collects data over time. Movement can reduce interpretability. Compare other sequences and assess technical quality before assigning significance to an apparent finding.",
+    "sourceURLs": [
+      "https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri"
+    ]
+  },
+  {
+    "id": "us-doppler",
+    "modality": "ultrasound",
+    "title": "Red does not mean oxygenated",
+    "prompt": "A fictional color Doppler display shows one vessel segment in red and another in blue. Does this identify arterial versus venous oxygenation?",
+    "answer": "No. Read the color scale and flow direction relative to the probe.",
+    "rationale": "Color Doppler encodes motion information. A color does not independently establish vessel identity or oxygen content; changing the display convention can reverse the colors.",
+    "sourceURLs": [
+      "https://www.radiologyinfo.org/en/info/genus"
+    ]
+  },
+  {
+    "id": "us-gel",
+    "modality": "ultrasound",
+    "title": "Why use gel?",
+    "prompt": "A fictional scanning demonstration compares dry probe contact with gel contact. Why does coupling gel help?",
+    "answer": "It reduces intervening air between the probe and skin.",
+    "rationale": "Air at the interface disrupts transmission into the body. Gel improves acoustic coupling so emitted sound and returning echoes can pass between the transducer and tissues.",
+    "sourceURLs": [
+      "https://www.nibib.nih.gov/science-education/science-topics/ultrasound"
+    ]
+  },
+  {
+    "id": "us-gas",
+    "modality": "ultrasound",
+    "title": "An organ hidden by gas",
+    "prompt": "During a fictional abdominal ultrasound lesson, bowel gas obscures part of an organ. Is the unseen region proven normal?",
+    "answer": "No. An incomplete acoustic window limits the examination.",
+    "rationale": "Gas can disrupt ultrasound transmission. Distinguish a structure that was assessed and appeared normal from a structure that was not adequately visualized.",
+    "sourceURLs": [
+      "https://www.radiologyinfo.org/en/info/genus"
+    ]
+  }
+]

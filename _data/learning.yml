@@ -13,3 +13,27 @@
   url: /tnm-atlas/lung-cancer-staging/
   description: Compare nodal stations and work through three staging examples.
   atlas: tnm-atlas
+
+- title: "How X-ray images work"
+  topic: Medical imaging
+  url: /imaging-atlas/xray/
+  description: "Learn projection, attenuation and magnification, then connect image geometry to a common chest radiograph pitfall."
+  atlas: imaging-atlas
+
+- title: "CT slices, Hounsfield units and windowing"
+  topic: Medical imaging
+  url: /imaging-atlas/ct/
+  description: "Understand what a CT window changes, what stays fixed, and why a saved image cannot replace the original examination."
+  atlas: imaging-atlas
+
+- title: "MRI sequences: T1, T2, FLAIR and diffusion"
+  topic: Medical imaging
+  url: /imaging-atlas/mri/
+  description: "Learn why the sequence label matters, compare fluid signal, and understand why DWI must be checked against ADC."
+  atlas: imaging-atlas
+
+- title: "Ultrasound: echoes, scan planes and Doppler"
+  topic: Medical imaging
+  url: /imaging-atlas/ultrasound/
+  description: "Connect probe orientation to the image on screen and learn what Doppler colors do\u2014and do not\u2014mean."
+  atlas: imaging-atlas

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "nibib-xray",
+    "title": "NIH NIBIB: Medical X-rays",
+    "url": "https://www.nibib.nih.gov/science-education/science-topics/medical-x-rays"
+  },
+  {
+    "id": "nibib-ct",
+    "title": "NIH NIBIB: Computed Tomography",
+    "url": "https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct"
+  },
+  {
+    "id": "nibib-mri",
+    "title": "NIH NIBIB: Magnetic Resonance Imaging",
+    "url": "https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri"
+  },
+  {
+    "id": "nibib-us",
+    "title": "NIH NIBIB: Ultrasound",
+    "url": "https://www.nibib.nih.gov/science-education/science-topics/ultrasound"
+  },
+  {
+    "id": "ri-bone",
+    "title": "RadiologyInfo: Bone X-ray",
+    "url": "https://www.radiologyinfo.org/en/info/bonerad"
+  },
+  {
+    "id": "ri-chest",
+    "title": "RadiologyInfo: Chest X-ray",
+    "url": "https://www.radiologyinfo.org/en/info/chestrad"
+  },
+  {
+    "id": "ri-ultrasound",
+    "title": "RadiologyInfo: Ultrasound",
+    "url": "https://www.radiologyinfo.org/en/info/genus"
+  },
+  {
+    "id": "ri-contrast",
+    "title": "RadiologyInfo: Contrast Materials",
+    "url": "https://www.radiologyinfo.org/en/info/safety-contrast"
+  },
+  {
+    "id": "fda-mri",
+    "title": "FDA: MRI Information for Professionals",
+    "url": "https://www.fda.gov/radiation-emitting-products/mri-magnetic-resonance-imaging/information-professionals"
+  },
+  {
+    "id": "dicom-window",
+    "title": "DICOM PS3.3: VOI LUT Module",
+    "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.11.2.html"
+  },
+  {
+    "id": "ap-pa",
+    "title": "Assessment of cardiac size on portable chest films (original study)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2966252/"
+  },
+  {
+    "id": "rsna-dwi",
+    "title": "Qayyum: Diffusion-weighted Imaging in the Abdomen and Pelvis: Concepts and Applications",
+    "url": "https://pubs.rsna.org/doi/10.1148/rg.296095521"
+  },
+  {
+    "id": "iowa-mri",
+    "title": "University of Iowa · Anatomical neuroimaging (Josh Cochran)",
+    "url": "https://neuroimaging.uiowa.edu/sites/neuroimaging.uiowa.edu/files/2022-05/05_JCOCHRAN_anatomical-neuroimaging.pdf"
+  }
+]
